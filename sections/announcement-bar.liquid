@@ -46,14 +46,22 @@
 {%- endif -%}
 
 {%- style -%}
-  #shopify-section-{{ section.id }} .announcement-bar__message {
-    font-size: 1.1rem;
-    letter-spacing: 0.04em;
+  /* Unified announcement bar — identical on every page (golden-white bar, black uppercase text) */
+  #shopify-section-{{ section.id }} .utility-bar {
+    background-color: #F5EAD0 !important;
+    background-image: none !important;
+  }
+  #shopify-section-{{ section.id }} .announcement-bar__message,
+  #shopify-section-{{ section.id }} .announcement-bar__link {
+    color: #141414 !important;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 0.82rem;
     padding: 0.7rem 0;
     min-height: 3rem;
   }
   @media screen and (max-width: 749px) {
-    #shopify-section-{{ section.id }} .announcement-bar__message { font-size: 0.95rem; }
+    #shopify-section-{{ section.id }} .announcement-bar__message { font-size: 0.72rem; letter-spacing: 0.14em; }
   }
 {%- endstyle -%}
 
