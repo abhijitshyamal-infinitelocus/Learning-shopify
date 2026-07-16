@@ -1,6 +1,50 @@
 {{ 'component-slideshow.css' | asset_url | stylesheet_tag }}
 {{ 'component-slider.css' | asset_url | stylesheet_tag }}
 
+{%- assign ann_n = section.blocks.size -%}
+{%- if ann_n > 1 -%}
+  {%- assign ann_spd = section.settings.change_slides_speed | at_least: 1 -%}
+  {%- assign ann_total = ann_spd | times: ann_n -%}
+  {%- assign ann_win = 100 | divided_by: ann_n -%}
+  {%- assign ann_fadein = ann_win | times: 22 | divided_by: 100 -%}
+  {%- assign ann_hold = ann_win | times: 78 | divided_by: 100 -%}
+  {%- style -%}
+    #shopify-section-{{ section.id }} .announcement-bar-slider .slider {
+      display: grid !important;
+      grid-template-columns: 1fr;
+      overflow: hidden !important;
+      transform: none !important;
+    }
+    #shopify-section-{{ section.id }} .announcement-bar-slider .slideshow__slide {
+      grid-column: 1;
+      grid-row: 1;
+      width: 100% !important;
+      opacity: 0;
+      animation: annfade-{{ section.id }} {{ ann_total }}s infinite;
+    }
+    {%- for i in (1..ann_n) -%}
+      #shopify-section-{{ section.id }} .announcement-bar-slider .slideshow__slide:nth-child({{ i }}) {
+        animation-delay: {{ forloop.index0 | times: ann_spd }}s;
+      }
+    {%- endfor -%}
+    #shopify-section-{{ section.id }} .announcement-bar-slider .slider-buttons,
+    #shopify-section-{{ section.id }} .announcement-bar-slider .slider-button {
+      display: none !important;
+    }
+    @keyframes annfade-{{ section.id }} {
+      0% { opacity: 0; pointer-events: none; }
+      {{ ann_fadein }}% { opacity: 1; pointer-events: auto; }
+      {{ ann_hold }}% { opacity: 1; pointer-events: auto; }
+      {{ ann_win }}% { opacity: 0; pointer-events: none; }
+      100% { opacity: 0; pointer-events: none; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      #shopify-section-{{ section.id }} .announcement-bar-slider .slideshow__slide { animation: none; opacity: 1; }
+      #shopify-section-{{ section.id }} .announcement-bar-slider .slideshow__slide:nth-child(n+2) { display: none; }
+    }
+  {%- endstyle -%}
+{%- endif -%}
+
 {%- style -%}
   #shopify-section-{{ section.id }} .announcement-bar__message {
     font-size: 1.1rem;
