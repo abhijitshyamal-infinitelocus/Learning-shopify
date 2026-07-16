@@ -25,7 +25,7 @@
         "contact_email": "care@miraggio.com",
         "contact_phone": "+91 98765 43210",
         "contact_address": "Mon–Sat, 10am–7pm IST",
-        "newsletter_enable": true,
+        "newsletter_enable": false,
         "newsletter_heading": "Join the Miraggio world",
         "bottom_note": "Designed with love and made responsibly in India.",
         "padding_top": 36,
