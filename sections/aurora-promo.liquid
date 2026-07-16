@@ -1,0 +1,126 @@
+{%- assign ov = section.settings.overlay_opacity | divided_by: 100.0 -%}
+{%- style -%}
+  #Promo-{{ section.id }} {
+    --pr-espresso: #221C1A;
+    --pr-cream: #F5ECE6;
+    --pr-clay: #C4A46A;
+    position: relative;
+    min-height: {{ section.settings.height }}px;
+    display: flex;
+    align-items: center;
+    justify-content: {% if section.settings.text_align == 'center' %}center{% elsif section.settings.text_align == 'right' %}flex-end{% else %}flex-start{% endif %};
+    overflow: hidden;
+    background-color: var(--pr-espresso);
+    color: var(--pr-cream);
+  }
+  #Promo-{{ section.id }} .pr-bg {
+    position: absolute;
+    inset: 0;
+    background-color: var(--pr-espresso);
+    background-image:
+      linear-gradient(90deg, rgba(28, 22, 20, {{ ov }}) 0%, rgba(28, 22, 20, {{ ov | times: 0.55 }}) 100%),
+      url("{{ section.settings.image_url }}");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    #Promo-{{ section.id }} .pr-bg { transition: transform 1.2s cubic-bezier(0.22, 0.61, 0.36, 1); }
+    #Promo-{{ section.id }}:hover .pr-bg { transform: scale(1.04); }
+  }
+  #Promo-{{ section.id }} .pr-inner {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: var(--page-width, 1200px);
+    margin: 0 auto;
+    padding: 3.5rem 2.5rem;
+    text-align: {{ section.settings.text_align }};
+  }
+  #Promo-{{ section.id }} .pr-copy {
+    max-width: 46ch;
+    {% if section.settings.text_align == 'center' %}margin: 0 auto;{% elsif section.settings.text_align == 'right' %}margin-left: auto;{% endif %}
+  }
+  #Promo-{{ section.id }} .pr-eyebrow {
+    font-size: 0.76rem;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--pr-clay);
+    margin: 0 0 1.1rem;
+  }
+  #Promo-{{ section.id }} .pr-heading {
+    font-family: var(--font-heading-family, inherit);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+    line-height: 0.98;
+    font-size: clamp(2.2rem, 5vw, 4rem);
+    margin: 0 0 1.2rem;
+  }
+  #Promo-{{ section.id }} .pr-heading em { font-style: normal; color: var(--pr-clay); }
+  #Promo-{{ section.id }} .pr-sub {
+    font-size: clamp(1rem, 1.3vw, 1.15rem);
+    line-height: 1.55;
+    color: rgba(245, 236, 230, 0.85);
+    margin: 0 0 2rem;
+  }
+  #Promo-{{ section.id }} .pr-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.95rem 2rem;
+    font-size: 0.82rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 4px;
+    background: var(--pr-cream);
+    color: var(--pr-espresso);
+    transition: transform 0.18s ease;
+  }
+  #Promo-{{ section.id }} .pr-btn:hover { transform: translateY(-2px); }
+  @media screen and (max-width: 749px) {
+    #Promo-{{ section.id }} { justify-content: center; }
+    #Promo-{{ section.id }} .pr-inner { padding: 3rem 1.5rem; text-align: center; }
+    #Promo-{{ section.id }} .pr-copy { margin: 0 auto; }
+  }
+{%- endstyle -%}
+
+<section id="Promo-{{ section.id }}">
+  <div class="pr-bg" role="presentation"></div>
+  <div class="pr-inner">
+    <div class="pr-copy">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="pr-eyebrow">{{ section.settings.eyebrow }}</p>
+      {%- endif -%}
+      {%- if section.settings.heading != blank -%}
+        <h2 class="pr-heading">{{ section.settings.heading }}</h2>
+      {%- endif -%}
+      {%- if section.settings.subtext != blank -%}
+        <p class="pr-sub">{{ section.settings.subtext }}</p>
+      {%- endif -%}
+      {%- if section.settings.button_label != blank -%}
+        <a href="{{ section.settings.button_link | default: '#' }}" class="pr-btn">{{ section.settings.button_label }}</a>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Aurora promo banner",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    { "type": "text", "id": "image_url", "label": "Background image URL", "info": "Paste a public HTTPS image URL.", "default": "https://images.unsplash.com/photo-1591561954557-26941169b49e?w=2000&q=80&auto=format&fit=crop" },
+    { "type": "range", "id": "overlay_opacity", "min": 0, "max": 90, "step": 5, "unit": "%", "label": "Image darken overlay", "default": 55 },
+    { "type": "range", "id": "height", "min": 300, "max": 720, "step": 20, "unit": "px", "label": "Banner height", "default": 460 },
+    { "type": "select", "id": "text_align", "label": "Text alignment", "options": [ { "value": "left", "label": "Left" }, { "value": "center", "label": "Center" }, { "value": "right", "label": "Right" } ], "default": "left" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "New season" },
+    { "type": "inline_richtext", "id": "heading", "label": "Heading", "default": "The autumn <em>edit</em>" },
+    { "type": "text", "id": "subtext", "label": "Subtext", "default": "Warm tones, structured shapes, and hardware that catches the light." },
+    { "type": "text", "id": "button_label", "label": "Button label", "default": "Shop new in" },
+    { "type": "url", "id": "button_link", "label": "Button link" }
+  ],
+  "presets": [{ "name": "Aurora promo banner" }]
+}
+{% endschema %}

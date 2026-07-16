@@ -1,0 +1,85 @@
+{%- style -%}
+  #OfferStrip-{{ section.id }} {
+    --os-espresso: #221C1A;
+    --os-cream: #F5ECE6;
+    --os-clay: #C4A46A;
+    background: var(--os-espresso);
+    color: var(--os-cream);
+  }
+  #OfferStrip-{{ section.id }} .os-inner {
+    max-width: var(--page-width, 1200px);
+    margin: 0 auto;
+    padding: {{ section.settings.padding_top }}px 2.5rem {{ section.settings.padding_bottom }}px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem 2.8rem;
+  }
+  #OfferStrip-{{ section.id }} .os-item {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    font-size: 0.8rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+  #OfferStrip-{{ section.id }} .os-item::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--os-clay);
+    flex: none;
+  }
+  @media screen and (max-width: 749px) {
+    #OfferStrip-{{ section.id }} .os-inner {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+      gap: 0.8rem 1.6rem;
+    }
+    #OfferStrip-{{ section.id }} .os-item { font-size: 0.72rem; }
+  }
+{%- endstyle -%}
+
+<section id="OfferStrip-{{ section.id }}">
+  <div class="os-inner">
+    {%- for block in section.blocks -%}
+      {%- if block.settings.text != blank -%}
+        <span class="os-item" {{ block.shopify_attributes }}>{{ block.settings.text }}</span>
+      {%- endif -%}
+    {%- endfor -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Aurora offer strip",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    { "type": "range", "id": "padding_top", "min": 8, "max": 48, "step": 2, "unit": "px", "label": "Top padding", "default": 16 },
+    { "type": "range", "id": "padding_bottom", "min": 8, "max": 48, "step": 2, "unit": "px", "label": "Bottom padding", "default": 16 }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Offer item",
+      "settings": [
+        { "type": "text", "id": "text", "label": "Text", "default": "Free shipping over ₹1499" }
+      ]
+    }
+  ],
+  "max_blocks": 4,
+  "presets": [
+    {
+      "name": "Aurora offer strip",
+      "blocks": [
+        { "type": "item", "settings": { "text": "Free shipping over ₹1499" } },
+        { "type": "item", "settings": { "text": "10% off your first order" } },
+        { "type": "item", "settings": { "text": "1-year warranty" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

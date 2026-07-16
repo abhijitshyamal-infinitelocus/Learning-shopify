@@ -1,0 +1,254 @@
+{%- style -%}
+  #AuroraFooter-{{ section.id }} {
+    --af-espresso: #1C1614;
+    --af-cream: #F5ECE6;
+    --af-clay: #C4A46A;
+    --af-olive: #A9756B;
+    --af-line: rgba(245, 236, 230, 0.14);
+    background: var(--af-espresso);
+    color: var(--af-cream);
+  }
+  #AuroraFooter-{{ section.id }} .af-inner {
+    max-width: var(--page-width, 1200px);
+    margin: 0 auto;
+    padding: {{ section.settings.padding_top }}px 2.5rem {{ section.settings.padding_bottom }}px;
+  }
+  #AuroraFooter-{{ section.id }} .af-top {
+    display: grid;
+    grid-template-columns: 1.4fr 2fr;
+    gap: clamp(2rem, 5vw, 5rem);
+    padding-bottom: 3rem;
+    border-bottom: 1px solid var(--af-line);
+  }
+  #AuroraFooter-{{ section.id }} .af-brand-name {
+    font-family: var(--font-heading-family, inherit);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    font-size: 1.9rem;
+    margin: 0 0 1rem;
+  }
+  #AuroraFooter-{{ section.id }} .af-tagline {
+    font-size: 0.98rem;
+    line-height: 1.6;
+    color: rgba(245, 236, 230, 0.7);
+    max-width: 34ch;
+    margin: 0 0 1.8rem;
+  }
+  #AuroraFooter-{{ section.id }} .af-news-label {
+    font-size: 0.74rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--af-clay);
+    margin: 0 0 0.9rem;
+  }
+  #AuroraFooter-{{ section.id }} .af-form {
+    display: flex;
+    max-width: 380px;
+    border: 1px solid var(--af-line);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  #AuroraFooter-{{ section.id }} .af-form input[type="email"] {
+    flex: 1;
+    background: transparent;
+    border: 0;
+    padding: 0.85rem 1rem;
+    color: var(--af-cream);
+    font-size: 0.9rem;
+    min-width: 0;
+  }
+  #AuroraFooter-{{ section.id }} .af-form input::placeholder { color: rgba(245, 236, 230, 0.45); }
+  #AuroraFooter-{{ section.id }} .af-form input:focus { outline: none; }
+  #AuroraFooter-{{ section.id }} .af-form button {
+    background: var(--af-cream);
+    color: var(--af-espresso);
+    border: 0;
+    padding: 0 1.3rem;
+    font-size: 0.76rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.18s ease;
+  }
+  #AuroraFooter-{{ section.id }} .af-form button:hover { background: var(--af-clay); }
+  #AuroraFooter-{{ section.id }} .af-news-msg {
+    font-size: 0.82rem;
+    margin: 0.7rem 0 0;
+    color: var(--af-clay);
+  }
+  #AuroraFooter-{{ section.id }} .af-cols {
+    display: grid;
+    grid-template-columns: repeat({{ section.blocks.size | at_least: 1 }}, 1fr);
+    gap: 2rem;
+  }
+  #AuroraFooter-{{ section.id }} .af-col-title {
+    font-size: 0.76rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--af-cream);
+    margin: 0 0 1.2rem;
+  }
+  #AuroraFooter-{{ section.id }} .af-col ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  #AuroraFooter-{{ section.id }} .af-col li { margin: 0 0 0.7rem; }
+  #AuroraFooter-{{ section.id }} .af-col a {
+    color: rgba(245, 236, 230, 0.7);
+    text-decoration: none;
+    font-size: 0.92rem;
+    transition: color 0.18s ease;
+  }
+  #AuroraFooter-{{ section.id }} .af-col a:hover { color: var(--af-clay); }
+  #AuroraFooter-{{ section.id }} .af-bottom {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-top: 1.8rem;
+  }
+  #AuroraFooter-{{ section.id }} .af-social {
+    display: flex;
+    gap: 1.4rem;
+  }
+  #AuroraFooter-{{ section.id }} .af-social a {
+    color: rgba(245, 236, 230, 0.7);
+    text-decoration: none;
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: color 0.18s ease;
+  }
+  #AuroraFooter-{{ section.id }} .af-social a:hover { color: var(--af-clay); }
+  #AuroraFooter-{{ section.id }} .af-legal {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.2rem;
+    font-size: 0.8rem;
+    color: rgba(245, 236, 230, 0.5);
+  }
+  #AuroraFooter-{{ section.id }} .af-legal a {
+    color: rgba(245, 236, 230, 0.5);
+    text-decoration: none;
+    transition: color 0.18s ease;
+  }
+  #AuroraFooter-{{ section.id }} .af-legal a:hover { color: var(--af-clay); }
+  @media screen and (max-width: 749px) {
+    #AuroraFooter-{{ section.id }} .af-inner { padding-left: 1.5rem; padding-right: 1.5rem; }
+    #AuroraFooter-{{ section.id }} .af-top { grid-template-columns: 1fr; gap: 2.4rem; }
+    #AuroraFooter-{{ section.id }} .af-cols { grid-template-columns: 1fr 1fr; }
+    #AuroraFooter-{{ section.id }} .af-bottom { flex-direction: column; align-items: flex-start; }
+  }
+{%- endstyle -%}
+
+<footer id="AuroraFooter-{{ section.id }}">
+  <div class="af-inner">
+    <div class="af-top">
+      <div class="af-brand">
+        <p class="af-brand-name">{{ section.settings.brand_name | default: shop.name }}</p>
+        {%- if section.settings.tagline != blank -%}
+          <p class="af-tagline">{{ section.settings.tagline }}</p>
+        {%- endif -%}
+        {%- if section.settings.newsletter_enable -%}
+          <p class="af-news-label">{{ section.settings.newsletter_heading }}</p>
+          {%- form 'customer' -%}
+            <input type="hidden" name="contact[tags]" value="newsletter">
+            <div class="af-form">
+              <input
+                type="email"
+                name="contact[email]"
+                placeholder="Email address"
+                autocorrect="off"
+                autocapitalize="off"
+                required
+              >
+              <button type="submit" name="commit">Subscribe</button>
+            </div>
+            {%- if form.posted_successfully? -%}
+              <p class="af-news-msg">Thanks — you're on the list.</p>
+            {%- elsif form.errors -%}
+              <p class="af-news-msg">{{ form.errors.translated_fields.email | capitalize }} {{ form.errors.messages.email }}</p>
+            {%- endif -%}
+          {%- endform -%}
+        {%- endif -%}
+      </div>
+
+      <div class="af-cols">
+        {%- for block in section.blocks -%}
+          <div class="af-col" {{ block.shopify_attributes }}>
+            {%- if block.settings.heading != blank -%}
+              <p class="af-col-title">{{ block.settings.heading }}</p>
+            {%- endif -%}
+            {%- if block.settings.menu != blank -%}
+              <ul>
+                {%- for link in block.settings.menu.links -%}
+                  <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+                {%- endfor -%}
+              </ul>
+            {%- endif -%}
+          </div>
+        {%- endfor -%}
+      </div>
+    </div>
+
+    <div class="af-bottom">
+      <div class="af-social">
+        {%- if settings.social_instagram_link != blank -%}<a href="{{ settings.social_instagram_link }}" target="_blank" rel="noopener">Instagram</a>{%- endif -%}
+        {%- if settings.social_facebook_link != blank -%}<a href="{{ settings.social_facebook_link }}" target="_blank" rel="noopener">Facebook</a>{%- endif -%}
+        {%- if settings.social_pinterest_link != blank -%}<a href="{{ settings.social_pinterest_link }}" target="_blank" rel="noopener">Pinterest</a>{%- endif -%}
+        {%- if settings.social_tiktok_link != blank -%}<a href="{{ settings.social_tiktok_link }}" target="_blank" rel="noopener">TikTok</a>{%- endif -%}
+        {%- if settings.social_youtube_link != blank -%}<a href="{{ settings.social_youtube_link }}" target="_blank" rel="noopener">YouTube</a>{%- endif -%}
+      </div>
+      <div class="af-legal">
+        <span>&copy; {{ 'now' | date: '%Y' }} {{ shop.name }}</span>
+        {%- for policy in shop.policies -%}
+          {%- if policy != blank -%}
+            <a href="{{ policy.url }}">{{ policy.title }}</a>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Aurora footer",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    { "type": "text", "id": "brand_name", "label": "Brand name", "info": "Leave blank to use the store name.", "default": "Miraggio" },
+    { "type": "textarea", "id": "tagline", "label": "Tagline", "default": "Vegan-leather handbags, slings, and clutches — designed in India to elevate your everyday." },
+    { "type": "header", "content": "Newsletter" },
+    { "type": "checkbox", "id": "newsletter_enable", "label": "Show email signup", "default": true },
+    { "type": "text", "id": "newsletter_heading", "label": "Newsletter heading", "default": "Join the Miraggio world" },
+    { "type": "header", "content": "Spacing" },
+    { "type": "range", "id": "padding_top", "min": 40, "max": 120, "step": 4, "unit": "px", "label": "Top padding", "default": 64 },
+    { "type": "range", "id": "padding_bottom", "min": 24, "max": 120, "step": 4, "unit": "px", "label": "Bottom padding", "default": 40 }
+  ],
+  "blocks": [
+    {
+      "type": "column",
+      "name": "Link column",
+      "settings": [
+        { "type": "text", "id": "heading", "label": "Heading", "default": "Shop" },
+        { "type": "link_list", "id": "menu", "label": "Menu", "info": "Choose a navigation menu of links." }
+      ]
+    }
+  ],
+  "max_blocks": 4,
+  "presets": [
+    {
+      "name": "Aurora footer",
+      "blocks": [
+        { "type": "column", "settings": { "heading": "Shop" } },
+        { "type": "column", "settings": { "heading": "Help" } },
+        { "type": "column", "settings": { "heading": "Company" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

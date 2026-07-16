@@ -1,0 +1,147 @@
+{%- style -%}
+  #Feature-{{ section.id }} {
+    --ft-espresso: #221C1A;
+    --ft-cream: #F5ECE6;
+    --ft-oat: #EEE1D7;
+    --ft-clay: #C4A46A;
+    --ft-olive: #A9756B;
+    background: var(--ft-oat);
+    color: var(--ft-espresso);
+  }
+  #Feature-{{ section.id }} .ft-inner {
+    max-width: var(--page-width, 1200px);
+    margin: 0 auto;
+    padding: {{ section.settings.padding_top }}px 2.5rem {{ section.settings.padding_bottom }}px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: clamp(2rem, 5vw, 4.5rem);
+  }
+  #Feature-{{ section.id }}.ft-reverse .ft-media { order: 2; }
+  #Feature-{{ section.id }} .ft-media {
+    position: relative;
+    aspect-ratio: 4 / 5;
+    border-radius: 14px;
+    overflow: hidden;
+    background: #E5DACB;
+  }
+  #Feature-{{ section.id }} .ft-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.7s cubic-bezier(0.22, 0.61, 0.36, 1);
+  }
+  #Feature-{{ section.id }}:hover .ft-media img { transform: scale(1.04); }
+  #Feature-{{ section.id }} .ft-eyebrow {
+    font-size: 0.76rem;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--ft-olive);
+    margin: 0 0 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+  }
+  #Feature-{{ section.id }} .ft-eyebrow::before {
+    content: "";
+    width: 2.4rem;
+    height: 1px;
+    background: var(--ft-clay);
+  }
+  #Feature-{{ section.id }} .ft-heading {
+    font-family: var(--font-heading-family, inherit);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+    line-height: 1;
+    font-size: clamp(1.9rem, 3.6vw, 3rem);
+    margin: 0 0 1.2rem;
+  }
+  #Feature-{{ section.id }} .ft-heading em { font-style: normal; color: var(--ft-clay); }
+  #Feature-{{ section.id }} .ft-text {
+    font-size: 1.02rem;
+    line-height: 1.65;
+    color: rgba(34, 28, 26, 0.78);
+    margin: 0 0 2rem;
+    max-width: 42ch;
+  }
+  #Feature-{{ section.id }} .ft-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.9rem 1.9rem;
+    font-size: 0.82rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 4px;
+    background: var(--ft-espresso);
+    color: var(--ft-cream);
+    transition: transform 0.18s ease;
+  }
+  #Feature-{{ section.id }} .ft-btn:hover { transform: translateY(-2px); }
+  @media (prefers-reduced-motion: no-preference) {
+    #Feature-{{ section.id }} .ft-copy > * {
+      opacity: 0;
+      transform: translateY(18px);
+      animation: ft-rise 0.7s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+    }
+    #Feature-{{ section.id }} .ft-copy > *:nth-child(2) { animation-delay: 0.1s; }
+    #Feature-{{ section.id }} .ft-copy > *:nth-child(3) { animation-delay: 0.2s; }
+    #Feature-{{ section.id }} .ft-copy > *:nth-child(4) { animation-delay: 0.3s; }
+    @keyframes ft-rise { to { opacity: 1; transform: translateY(0); } }
+  }
+  @media screen and (max-width: 749px) {
+    #Feature-{{ section.id }} .ft-inner {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+    #Feature-{{ section.id }}.ft-reverse .ft-media { order: 0; }
+  }
+{%- endstyle -%}
+
+<section id="Feature-{{ section.id }}" class="{% if section.settings.image_position == 'right' %}ft-reverse{% endif %}">
+  <div class="ft-inner">
+    <div class="ft-media">
+      {%- if section.settings.image_url != blank -%}
+        <img src="{{ section.settings.image_url }}" alt="{{ section.settings.heading | strip_html | escape }}" loading="lazy" width="640" height="800">
+      {%- endif -%}
+    </div>
+    <div class="ft-copy">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="ft-eyebrow">{{ section.settings.eyebrow }}</p>
+      {%- endif -%}
+      {%- if section.settings.heading != blank -%}
+        <h2 class="ft-heading">{{ section.settings.heading }}</h2>
+      {%- endif -%}
+      {%- if section.settings.text != blank -%}
+        <div class="ft-text">{{ section.settings.text }}</div>
+      {%- endif -%}
+      {%- if section.settings.button_label != blank -%}
+        <a href="{{ section.settings.button_link | default: '#' }}" class="ft-btn">{{ section.settings.button_label }}</a>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Aurora feature",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    { "type": "text", "id": "image_url", "label": "Image URL", "info": "Paste a public HTTPS image URL.", "default": "https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?w=1200&q=80&auto=format&fit=crop" },
+    { "type": "select", "id": "image_position", "label": "Image position", "options": [ { "value": "left", "label": "Left" }, { "value": "right", "label": "Right" } ], "default": "left" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Designed in India" },
+    { "type": "inline_richtext", "id": "heading", "label": "Heading", "default": "Considered shapes, <em>lasting</em> hardware" },
+    { "type": "richtext", "id": "text", "label": "Text", "default": "<p>Every Miraggio bag starts as a sketch in our in-house studio. We obsess over proportion, weight, and the way a strap sits on the shoulder — then finish it in buttery vegan leather built to hold its shape season after season.</p>" },
+    { "type": "text", "id": "button_label", "label": "Button label", "default": "Our story" },
+    { "type": "url", "id": "button_link", "label": "Button link" },
+    { "type": "range", "id": "padding_top", "min": 40, "max": 160, "step": 4, "unit": "px", "label": "Top padding", "default": 72 },
+    { "type": "range", "id": "padding_bottom", "min": 40, "max": 160, "step": 4, "unit": "px", "label": "Bottom padding", "default": 72 }
+  ],
+  "presets": [{ "name": "Aurora feature" }]
+}
+{% endschema %}
