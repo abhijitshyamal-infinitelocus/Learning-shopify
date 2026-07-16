@@ -102,10 +102,12 @@
 
 {%- if request.page_type == 'index' -%}
   {%- style -%}
-    /* Homepage: header sits transparent over the hero, then turns solid with black text once scrolled past it */
+    /* Homepage: header floats transparent over the hero, then turns solid with black text once scrolled past it */
     .shopify-section-group-header-group.section-header {
-      position: sticky;
+      position: fixed;
       top: 0;
+      left: 0;
+      right: 0;
       z-index: 5;
     }
     #shopify-section-{{ section.id }} .header-wrapper {
@@ -127,11 +129,6 @@
         var wrapper = document.querySelector('#shopify-section-{{ section.id }} .header-wrapper');
         var hero = document.querySelector('[id^="AuroraHero-"]');
         if (!group || !wrapper || !hero) return;
-        var heroSection = hero.closest('.shopify-section') || hero;
-
-        function applyOffset() {
-          heroSection.style.marginTop = '-' + group.offsetHeight + 'px';
-        }
 
         var ticking = false;
         function update() {
@@ -143,10 +140,9 @@
           if (!ticking) { ticking = true; requestAnimationFrame(update); }
         }
 
-        applyOffset();
         update();
         window.addEventListener('scroll', onScroll, { passive: true });
-        window.addEventListener('resize', function () { applyOffset(); update(); });
+        window.addEventListener('resize', update);
       }
       if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', init);
