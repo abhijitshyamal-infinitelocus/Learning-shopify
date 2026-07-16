@@ -191,17 +191,6 @@
         "padding_bottom": 72
       }
     },
-    "newsletter": {
-      "type": "aurora-newsletter",
-      "settings": {
-        "eyebrow": "Newsletter",
-        "heading": "Join the Miraggio world",
-        "text": "<p>Sign up for 10% off your first bag, plus first access to every new drop.</p>",
-        "button_label": "Subscribe",
-        "padding_top": 88,
-        "padding_bottom": 88
-      }
-    },
     "featured_bar": {
       "type": "aurora-featured-bar",
       "settings": {
@@ -230,7 +219,6 @@
     "aurora_feature",
     "aurora_tiles",
     "featured_collection",
-    "featured_bar",
-    "newsletter"
+    "featured_bar"
   ]
 }
