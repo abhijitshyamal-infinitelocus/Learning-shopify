@@ -28,8 +28,8 @@
         "newsletter_enable": true,
         "newsletter_heading": "Join the Miraggio world",
         "bottom_note": "Designed with love and made responsibly in India.",
-        "padding_top": 56,
-        "padding_bottom": 40
+        "padding_top": 36,
+        "padding_bottom": 24
       }
     }
   },
