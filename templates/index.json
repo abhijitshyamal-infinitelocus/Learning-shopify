@@ -41,8 +41,8 @@
     "aurora_promo": {
       "type": "aurora-promo",
       "settings": {
-        "image_url": "https://images.unsplash.com/photo-1591561954557-26941169b49e?w=2000&q=80&auto=format&fit=crop",
-        "overlay_opacity": 55,
+        "image_url": "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=2000&q=80&auto=format&fit=crop",
+        "overlay_opacity": 45,
         "height": 460,
         "text_align": "left",
         "eyebrow": "New season",
@@ -136,34 +136,16 @@
       }
     },
     "rich_text": {
-      "type": "rich-text",
-      "blocks": {
-        "heading": {
-          "type": "heading",
-          "settings": {
-            "heading": "More than a bag.",
-            "heading_size": "h1"
-          }
-        },
-        "text": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Miraggio began with a belief that a great bag is a little luxury you carry every day. We design vegan-leather pieces in India — considered shapes, hardware that lasts, and finishes that turn heads without turning up the price.</p>"
-          }
-        }
-      },
-      "block_order": ["heading", "text"],
+      "type": "aurora-intro",
       "settings": {
-        "desktop_content_position": "center",
-        "content_alignment": "center",
-        "color_scheme": "scheme-1",
-        "full_width": true,
-        "padding_top": 44,
-        "padding_bottom": 44
+        "heading": "More than a bag.",
+        "text": "<p>Miraggio began with a belief that a great bag is a little luxury you carry every day. We design vegan-leather pieces in India — considered shapes, hardware that lasts, and finishes that turn heads without turning up the price.</p>",
+        "padding_top": 72,
+        "padding_bottom": 72
       }
     },
     "multicolumn": {
-      "type": "multicolumn",
+      "type": "aurora-promise",
       "blocks": {
         "col1": {
           "type": "column",
@@ -190,74 +172,34 @@
       "block_order": ["col1", "col2", "col3"],
       "settings": {
         "title": "The Miraggio promise",
-        "heading_size": "h2",
-        "image_width": "third",
-        "image_ratio": "adapt",
-        "button_label": "",
-        "columns_desktop": 3,
-        "column_alignment": "center",
-        "background_style": "none",
-        "color_scheme": "scheme-3",
-        "columns_mobile": "1",
-        "swipe_on_mobile": false,
-        "padding_top": 44,
-        "padding_bottom": 44
+        "padding_top": 72,
+        "padding_bottom": 72
       }
     },
     "featured_collection": {
-      "type": "featured-collection",
+      "type": "aurora-collection",
       "settings": {
         "collection": "all",
         "products_to_show": 8,
-        "title": "Shop all bags",
-        "heading_size": "h2",
-        "description": "",
-        "show_description": false,
-        "description_style": "body",
         "columns_desktop": 4,
-        "enable_desktop_slider": false,
-        "full_width": false,
-        "show_view_all": true,
-        "view_all_style": "solid",
-        "color_scheme": "scheme-1",
-        "image_ratio": "portrait",
-        "image_shape": "default",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "standard",
         "columns_mobile": "2",
-        "swipe_on_mobile": false,
-        "padding_top": 36,
-        "padding_bottom": 44
+        "eyebrow": "The collection",
+        "title": "Shop all bags",
+        "show_view_all": true,
+        "view_all_label": "View all",
+        "padding_top": 72,
+        "padding_bottom": 72
       }
     },
     "newsletter": {
-      "type": "newsletter",
-      "blocks": {
-        "heading": {
-          "type": "heading",
-          "settings": {
-            "heading": "Join the Miraggio world"
-          }
-        },
-        "paragraph": {
-          "type": "paragraph",
-          "settings": {
-            "text": "<p>Sign up for 10% off your first bag, plus first access to every new drop.</p>"
-          }
-        },
-        "email_form": {
-          "type": "email_form",
-          "settings": {}
-        }
-      },
-      "block_order": ["heading", "paragraph", "email_form"],
+      "type": "aurora-newsletter",
       "settings": {
-        "color_scheme": "scheme-3",
-        "full_width": true,
-        "padding_top": 52,
-        "padding_bottom": 52
+        "eyebrow": "Newsletter",
+        "heading": "Join the Miraggio world",
+        "text": "<p>Sign up for 10% off your first bag, plus first access to every new drop.</p>",
+        "button_label": "Subscribe",
+        "padding_top": 88,
+        "padding_bottom": 88
       }
     }
   },
