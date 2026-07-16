@@ -69,31 +69,6 @@
     transition: transform 0.6s cubic-bezier(0.22, 0.61, 0.36, 1);
   }
   #Coll-{{ section.id }} .co-card:hover .co-frame img { transform: scale(1.05); }
-  /* Branded fallback when a product has no image */
-  #Coll-{{ section.id }} .co-placeholder {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    background: linear-gradient(135deg, var(--co-oat) 0%, #E7D6BE 100%);
-    color: var(--co-espresso);
-  }
-  #Coll-{{ section.id }} .co-placeholder .co-ph-brand {
-    font-family: var(--font-heading-family, inherit);
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    font-size: 1.25rem;
-  }
-  #Coll-{{ section.id }} .co-placeholder .co-ph-sub {
-    font-size: 0.66rem;
-    letter-spacing: 0.28em;
-    text-transform: uppercase;
-    color: var(--co-olive);
-  }
   #Coll-{{ section.id }} .co-name {
     font-family: var(--font-heading-family, inherit);
     font-weight: 700;
@@ -125,6 +100,8 @@
 {%- endstyle -%}
 
 {%- assign coll = collections[section.settings.collection] -%}
+{%- comment -%} Stopgap bag imagery for products without a photo — reuses URLs already proven on this page {%- endcomment -%}
+{%- assign bag_images = "https://images.unsplash.com/photo-1584917865442-de89df76afd3,https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d,https://images.unsplash.com/photo-1548036328-c9fa89d128fa,https://images.unsplash.com/photo-1591561954557-26941169b49e,https://images.unsplash.com/photo-1594633312681-425c7b97ccd1" | split: "," -%}
 
 <section id="Coll-{{ section.id }}">
   <div class="co-inner">
@@ -155,10 +132,14 @@
                 height="800"
               >
             {%- else -%}
-              <div class="co-placeholder">
-                <span class="co-ph-brand">Miraggio</span>
-                <span class="co-ph-sub">Coming soon</span>
-              </div>
+              {%- assign bag_i = forloop.index0 | modulo: bag_images.size -%}
+              <img
+                src="{{ bag_images[bag_i] }}?w=700&q=80&auto=format&fit=crop"
+                alt="{{ product.title | escape }}"
+                loading="lazy"
+                width="600"
+                height="800"
+              >
             {%- endif -%}
           </div>
           <p class="co-name">{{ product.title }}</p>
@@ -172,12 +153,16 @@
         </a>
       {%- else -%}
         {%- for i in (1..section.settings.products_to_show) -%}
+          {%- assign bag_i = forloop.index0 | modulo: bag_images.size -%}
           <div class="co-card">
             <div class="co-frame">
-              <div class="co-placeholder">
-                <span class="co-ph-brand">Miraggio</span>
-                <span class="co-ph-sub">Coming soon</span>
-              </div>
+              <img
+                src="{{ bag_images[bag_i] }}?w=700&q=80&auto=format&fit=crop"
+                alt="Signature bag"
+                loading="lazy"
+                width="600"
+                height="800"
+              >
             </div>
             <p class="co-name">Signature bag</p>
             <p class="co-price">{{ 1999 | money }}</p>

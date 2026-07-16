@@ -1,6 +1,16 @@
 {{ 'component-slideshow.css' | asset_url | stylesheet_tag }}
 {{ 'component-slider.css' | asset_url | stylesheet_tag }}
 
+{%- style -%}
+  #shopify-section-{{ section.id }} .announcement-bar__message {
+    font-size: 1.1rem;
+    letter-spacing: 0.04em;
+  }
+  @media screen and (max-width: 749px) {
+    #shopify-section-{{ section.id }} .announcement-bar__message { font-size: 0.95rem; }
+  }
+{%- endstyle -%}
+
 {%- liquid
   assign social_icons = true
   if settings.social_facebook_link == blank and settings.social_instagram_link == blank and settings.social_youtube_link == blank and settings.social_tiktok_link == blank and settings.social_twitter_link == blank and settings.social_pinterest_link == blank and settings.social_snapchat_link == blank and settings.social_tumblr_link == blank and settings.social_vimeo_link == blank
