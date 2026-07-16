@@ -1,0 +1,263 @@
+{%- style -%}
+  #AuroraHero-{{ section.id }} {
+    --ah-espresso: #2A2721;
+    --ah-cream: #F6F0E6;
+    --ah-clay: #B08863;
+    --ah-oat: #EDE4D5;
+    --ah-olive: #6E7259;
+    position: relative;
+    overflow: hidden;
+    background: radial-gradient(120% 140% at 85% 15%, #3B372F 0%, #2A2721 55%, #211E19 100%);
+    color: var(--ah-cream);
+  }
+
+  #AuroraHero-{{ section.id }} .ah-inner {
+    max-width: var(--page-width, 1200px);
+    margin: 0 auto;
+    padding: {{ section.settings.padding_top }}px 2.5rem {{ section.settings.padding_bottom }}px;
+    display: grid;
+    grid-template-columns: 1.35fr 0.65fr;
+    align-items: center;
+    gap: 3rem;
+  }
+
+  #AuroraHero-{{ section.id }} .ah-eyebrow {
+    font-size: 0.78rem;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--ah-clay);
+    margin: 0 0 1.4rem;
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+  }
+  #AuroraHero-{{ section.id }} .ah-eyebrow::before {
+    content: "";
+    width: 2.4rem;
+    height: 1px;
+    background: var(--ah-clay);
+    display: inline-block;
+  }
+
+  #AuroraHero-{{ section.id }} .ah-heading {
+    font-family: var(--font-heading-family, inherit);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+    line-height: 0.95;
+    font-size: clamp(2.6rem, 6.5vw, 5.4rem);
+    margin: 0 0 1.6rem;
+  }
+  #AuroraHero-{{ section.id }} .ah-heading em {
+    font-style: normal;
+    color: var(--ah-clay);
+  }
+
+  #AuroraHero-{{ section.id }} .ah-sub {
+    font-size: clamp(1rem, 1.4vw, 1.18rem);
+    line-height: 1.55;
+    max-width: 34ch;
+    color: rgba(246, 240, 230, 0.82);
+    margin: 0 0 2.4rem;
+  }
+
+  #AuroraHero-{{ section.id }} .ah-cta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.9rem;
+  }
+  #AuroraHero-{{ section.id }} .ah-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.95rem 1.9rem;
+    font-size: 0.82rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: transform 0.18s ease, background-color 0.18s ease, color 0.18s ease;
+  }
+  #AuroraHero-{{ section.id }} .ah-btn--solid {
+    background: var(--ah-cream);
+    color: var(--ah-espresso);
+  }
+  #AuroraHero-{{ section.id }} .ah-btn--ghost {
+    border: 1px solid rgba(246, 240, 230, 0.4);
+    color: var(--ah-cream);
+  }
+  #AuroraHero-{{ section.id }} .ah-btn:hover { transform: translateY(-2px); }
+  #AuroraHero-{{ section.id }} .ah-btn--ghost:hover { background: rgba(246, 240, 230, 0.08); }
+
+  /* --- Signature: garment hangtag --- */
+  #AuroraHero-{{ section.id }} .ah-tagwrap {
+    display: flex;
+    justify-content: center;
+  }
+  #AuroraHero-{{ section.id }} .ah-tag {
+    position: relative;
+    width: min(280px, 78vw);
+    background: var(--ah-oat);
+    color: var(--ah-espresso);
+    border-radius: 10px 10px 12px 12px;
+    padding: 2.6rem 1.6rem 1.4rem;
+    transform: rotate(3.5deg);
+    box-shadow: 0 26px 50px -18px rgba(0, 0, 0, 0.6);
+  }
+  #AuroraHero-{{ section.id }} .ah-tag::before {
+    content: "";
+    position: absolute;
+    top: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--ah-espresso);
+    box-shadow: inset 0 0 0 3px var(--ah-oat), 0 0 0 4px rgba(0,0,0,0.08);
+  }
+  #AuroraHero-{{ section.id }} .ah-tag::after {
+    content: "";
+    position: absolute;
+    top: -34px;
+    left: 50%;
+    width: 2px;
+    height: 46px;
+    background: var(--ah-clay);
+    transform: translateX(-50%) rotate(-8deg);
+    transform-origin: bottom center;
+  }
+  #AuroraHero-{{ section.id }} .ah-tag-brand {
+    text-align: center;
+    font-size: 0.66rem;
+    letter-spacing: 0.34em;
+    text-transform: uppercase;
+    color: var(--ah-olive);
+    margin: 0 0 1.1rem;
+  }
+  #AuroraHero-{{ section.id }} .ah-tag-material {
+    font-family: var(--font-heading-family, inherit);
+    font-weight: 800;
+    text-transform: uppercase;
+    line-height: 0.98;
+    font-size: 1.9rem;
+    letter-spacing: -0.01em;
+    margin: 0 0 1.3rem;
+  }
+  #AuroraHero-{{ section.id }} .ah-tag-rows { margin: 0 0 1.2rem; }
+  #AuroraHero-{{ section.id }} .ah-tag-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.5rem 0;
+    border-top: 1px solid rgba(42, 39, 33, 0.16);
+  }
+  #AuroraHero-{{ section.id }} .ah-tag-row span:last-child { color: var(--ah-olive); font-weight: 700; }
+  #AuroraHero-{{ section.id }} .ah-barcode {
+    height: 34px;
+    background-image: repeating-linear-gradient(90deg, var(--ah-espresso) 0 2px, transparent 2px 4px, var(--ah-espresso) 4px 5px, transparent 5px 9px);
+    opacity: 0.85;
+  }
+  #AuroraHero-{{ section.id }} .ah-barcode-label {
+    text-align: center;
+    font-size: 0.6rem;
+    letter-spacing: 0.28em;
+    margin: 0.5rem 0 0;
+    color: rgba(42, 39, 33, 0.55);
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    #AuroraHero-{{ section.id }} .ah-anim {
+      opacity: 0;
+      transform: translateY(16px);
+      animation: ah-rise 0.7s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+    }
+    #AuroraHero-{{ section.id }} .ah-d1 { animation-delay: 0.05s; }
+    #AuroraHero-{{ section.id }} .ah-d2 { animation-delay: 0.15s; }
+    #AuroraHero-{{ section.id }} .ah-d3 { animation-delay: 0.25s; }
+    #AuroraHero-{{ section.id }} .ah-tag { animation: ah-tag-in 0.8s cubic-bezier(0.22, 0.61, 0.36, 1) 0.3s backwards; }
+    @keyframes ah-rise { to { opacity: 1; transform: translateY(0); } }
+    @keyframes ah-tag-in { from { opacity: 0; transform: rotate(3.5deg) translateY(28px); } to { opacity: 1; transform: rotate(3.5deg) translateY(0); } }
+  }
+
+  @media screen and (max-width: 749px) {
+    #AuroraHero-{{ section.id }} .ah-inner {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+      text-align: center;
+    }
+    #AuroraHero-{{ section.id }} .ah-eyebrow { justify-content: center; }
+    #AuroraHero-{{ section.id }} .ah-sub { margin-left: auto; margin-right: auto; }
+    #AuroraHero-{{ section.id }} .ah-cta { justify-content: center; }
+    #AuroraHero-{{ section.id }} .ah-tag { transform: rotate(2deg); }
+  }
+{%- endstyle -%}
+
+<section id="AuroraHero-{{ section.id }}">
+  <div class="ah-inner">
+    <div class="ah-copy">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="ah-eyebrow ah-anim ah-d1">{{ section.settings.eyebrow }}</p>
+      {%- endif -%}
+      {%- if section.settings.heading != blank -%}
+        <h1 class="ah-heading ah-anim ah-d2">{{ section.settings.heading }}</h1>
+      {%- endif -%}
+      {%- if section.settings.subtext != blank -%}
+        <p class="ah-sub ah-anim ah-d3">{{ section.settings.subtext }}</p>
+      {%- endif -%}
+      <div class="ah-cta ah-anim ah-d3">
+        {%- if section.settings.button_label != blank -%}
+          <a href="{{ section.settings.button_link | default: '#' }}" class="ah-btn ah-btn--solid">{{ section.settings.button_label }}</a>
+        {%- endif -%}
+        {%- if section.settings.button_label_2 != blank -%}
+          <a href="{{ section.settings.button_link_2 | default: '#' }}" class="ah-btn ah-btn--ghost">{{ section.settings.button_label_2 }}</a>
+        {%- endif -%}
+      </div>
+    </div>
+
+    <div class="ah-tagwrap">
+      <div class="ah-tag">
+        <p class="ah-tag-brand">{{ section.settings.tag_brand | escape }}</p>
+        <p class="ah-tag-material">{{ section.settings.tag_material | escape | newline_to_br }}</p>
+        <div class="ah-tag-rows">
+          <div class="ah-tag-row"><span>Weight</span><span>{{ section.settings.tag_weight | escape }}</span></div>
+          <div class="ah-tag-row"><span>Fit</span><span>{{ section.settings.tag_fit | escape }}</span></div>
+          <div class="ah-tag-row"><span>Origin</span><span>{{ section.settings.tag_origin | escape }}</span></div>
+        </div>
+        <div class="ah-barcode" role="presentation"></div>
+        <p class="ah-barcode-label">AURORA · ORGANIC</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Aurora hero",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Organic cotton essentials" },
+    { "type": "inline_richtext", "id": "heading", "label": "Heading", "default": "Everyday cotton, made <em>honestly</em>." },
+    { "type": "text", "id": "subtext", "label": "Subtext", "default": "GOTS-certified organic basics — heavyweight, unisex, and built to outlast the trend cycle." },
+    { "type": "text", "id": "button_label", "label": "Primary button label", "default": "Shop the tee" },
+    { "type": "url", "id": "button_link", "label": "Primary button link" },
+    { "type": "text", "id": "button_label_2", "label": "Secondary button label", "default": "Our materials" },
+    { "type": "url", "id": "button_link_2", "label": "Secondary button link" },
+    { "type": "header", "content": "Hangtag" },
+    { "type": "text", "id": "tag_brand", "label": "Tag brand", "default": "Aurora Basics" },
+    { "type": "text", "id": "tag_material", "label": "Tag material", "default": "100% Organic Cotton" },
+    { "type": "text", "id": "tag_weight", "label": "Weight", "default": "240 GSM" },
+    { "type": "text", "id": "tag_fit", "label": "Fit", "default": "Unisex" },
+    { "type": "text", "id": "tag_origin", "label": "Origin", "default": "Made fair" },
+    { "type": "header", "content": "Spacing" },
+    { "type": "range", "id": "padding_top", "min": 40, "max": 160, "step": 4, "unit": "px", "label": "Top padding", "default": 96 },
+    { "type": "range", "id": "padding_bottom", "min": 40, "max": 160, "step": 4, "unit": "px", "label": "Bottom padding", "default": 96 }
+  ],
+  "presets": [{ "name": "Aurora hero" }]
+}
+{% endschema %}

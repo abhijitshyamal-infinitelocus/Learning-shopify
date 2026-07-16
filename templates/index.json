@@ -1,46 +1,22 @@
 {
   "sections": {
-    "image_banner": {
-      "type": "image-banner",
-      "blocks": {
-        "heading": {
-          "type": "heading",
-          "settings": {
-            "heading": "Elevated essentials, made honestly.",
-            "heading_size": "h0"
-          }
-        },
-        "text": {
-          "type": "text",
-          "settings": {
-            "text": "Organic cotton basics designed to last — soft, sustainable, and made for every body.",
-            "text_style": "subtitle"
-          }
-        },
-        "buttons": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "Shop the tee",
-            "button_link_1": "shopify://products/aurora-organic-cotton-oversized-tee",
-            "button_style_secondary_1": false,
-            "button_label_2": "Browse all",
-            "button_link_2": "shopify://collections/all",
-            "button_style_secondary_2": true
-          }
-        }
-      },
-      "block_order": ["heading", "text", "buttons"],
+    "aurora_hero": {
+      "type": "aurora-hero",
       "settings": {
-        "image_overlay_opacity": 30,
-        "image_height": "large",
-        "desktop_content_position": "middle-center",
-        "show_text_box": true,
-        "image_behavior": "none",
-        "desktop_content_alignment": "center",
-        "color_scheme": "scheme-3",
-        "mobile_content_alignment": "center",
-        "stack_images_on_mobile": true,
-        "show_text_below": true
+        "eyebrow": "Organic cotton essentials",
+        "heading": "Everyday cotton, made <em>honestly</em>.",
+        "subtext": "GOTS-certified organic basics — heavyweight, unisex, and built to outlast the trend cycle.",
+        "button_label": "Shop the tee",
+        "button_link": "shopify://products/aurora-organic-cotton-oversized-tee",
+        "button_label_2": "Browse all",
+        "button_link_2": "shopify://collections/all",
+        "tag_brand": "Aurora Basics",
+        "tag_material": "100% Organic Cotton",
+        "tag_weight": "240 GSM",
+        "tag_fit": "Unisex",
+        "tag_origin": "Made fair",
+        "padding_top": 96,
+        "padding_bottom": 96
       }
     },
     "rich_text": {
@@ -219,7 +195,7 @@
     }
   },
   "order": [
-    "image_banner",
+    "aurora_hero",
     "rich_text",
     "featured_product",
     "multicolumn",
