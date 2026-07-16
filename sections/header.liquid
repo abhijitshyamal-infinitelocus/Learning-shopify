@@ -77,6 +77,19 @@
 </style>
 
 {%- style -%}
+  /* Consistent Miraggio header typography on every page */
+  .header__menu-item span,
+  .header__active-menu-item {
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: 0.78rem;
+    font-weight: 500;
+  }
+  .header__heading-link {
+    text-transform: uppercase;
+    letter-spacing: 0.28em;
+    font-weight: 700;
+  }
   .header {
     padding: {{ section.settings.padding_top | times: 0.5 | round: 0 }}px 3rem {{ section.settings.padding_bottom | times: 0.5 | round: 0 }}px 3rem;
   }
