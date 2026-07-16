@@ -7,7 +7,13 @@
     --ah-olive: #6E7259;
     position: relative;
     overflow: hidden;
-    background: radial-gradient(120% 140% at 85% 15%, #3B372F 0%, #2A2721 55%, #211E19 100%);
+    background-color: var(--ah-espresso);
+    background-image:
+      url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='6'%20height='6'%3E%3Cpath%20d='M0%206L6%200'%20stroke='%23F6F0E6'%20stroke-opacity='0.05'%20stroke-width='1'/%3E%3C/svg%3E"),
+      radial-gradient(120% 140% at 85% 15%, #3B372F 0%, #2A2721 55%, #211E19 100%);
+    background-size: 6px 6px, cover;
+    background-repeat: repeat, no-repeat;
+    background-position: 0 0, center;
     color: var(--ah-cream);
   }
 
@@ -40,6 +46,7 @@
   }
 
   #AuroraHero-{{ section.id }} .ah-heading {
+    color: var(--ah-cream);
     font-family: var(--font-heading-family, inherit);
     font-weight: 800;
     text-transform: uppercase;
@@ -197,6 +204,21 @@
   }
 {%- endstyle -%}
 
+{%- if section.settings.background_image != blank -%}
+  {%- assign ah_left = section.settings.overlay_opacity | plus: 25 | divided_by: 100.0 -%}
+  {%- assign ah_right = section.settings.overlay_opacity | times: 0.5 | divided_by: 100.0 -%}
+  <style>
+    #AuroraHero-{{ section.id }} {
+      background-image:
+        linear-gradient(90deg, rgba(33, 30, 25, {{ ah_left }}) 0%, rgba(33, 30, 25, {{ ah_right }}) 100%),
+        url({{ section.settings.background_image | image_url: width: 2400 }});
+      background-size: cover, cover;
+      background-repeat: no-repeat, no-repeat;
+      background-position: center, center;
+    }
+  </style>
+{%- endif -%}
+
 <section id="AuroraHero-{{ section.id }}">
   <div class="ah-inner">
     <div class="ah-copy">
@@ -254,6 +276,9 @@
     { "type": "text", "id": "tag_weight", "label": "Weight", "default": "240 GSM" },
     { "type": "text", "id": "tag_fit", "label": "Fit", "default": "Unisex" },
     { "type": "text", "id": "tag_origin", "label": "Origin", "default": "Made fair" },
+    { "type": "header", "content": "Background" },
+    { "type": "image_picker", "id": "background_image", "label": "Background image", "info": "Optional. Layers under a readability overlay. Leave empty to use the woven-texture default." },
+    { "type": "range", "id": "overlay_opacity", "min": 0, "max": 90, "step": 5, "unit": "%", "label": "Image darken overlay", "default": 55 },
     { "type": "header", "content": "Spacing" },
     { "type": "range", "id": "padding_top", "min": 40, "max": 160, "step": 4, "unit": "px", "label": "Top padding", "default": 96 },
     { "type": "range", "id": "padding_bottom", "min": 40, "max": 160, "step": 4, "unit": "px", "label": "Bottom padding", "default": 96 }
