@@ -56,48 +56,6 @@
     color: var(--af-clay);
     margin: 0 0 0.4rem;
   }
-  #AuroraFooter-{{ section.id }} .af-news-label {
-    font-size: 0.9rem;
-    letter-spacing: 0.26em;
-    text-transform: uppercase;
-    color: var(--af-clay);
-    margin: 0 0 0.9rem;
-  }
-  #AuroraFooter-{{ section.id }} .af-form {
-    display: flex;
-    max-width: 400px;
-    border: 1px solid var(--af-line);
-    border-radius: 4px;
-    overflow: hidden;
-  }
-  #AuroraFooter-{{ section.id }} .af-form input[type="email"] {
-    flex: 1;
-    background: transparent;
-    border: 0;
-    padding: 0.95rem 1rem;
-    color: var(--af-cream);
-    font-size: 1rem;
-    min-width: 0;
-  }
-  #AuroraFooter-{{ section.id }} .af-form input::placeholder { color: rgba(245, 236, 230, 0.45); }
-  #AuroraFooter-{{ section.id }} .af-form input:focus { outline: none; }
-  #AuroraFooter-{{ section.id }} .af-form button {
-    background: var(--af-cream);
-    color: var(--af-espresso);
-    border: 0;
-    padding: 0 1.4rem;
-    font-size: 0.84rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: background 0.18s ease;
-  }
-  #AuroraFooter-{{ section.id }} .af-form button:hover { background: var(--af-clay); }
-  #AuroraFooter-{{ section.id }} .af-news-msg {
-    font-size: 0.9rem;
-    margin: 0.7rem 0 0;
-    color: var(--af-clay);
-  }
   #AuroraFooter-{{ section.id }} .af-cols {
     display: grid;
     grid-template-columns: repeat({{ section.blocks.size | at_least: 1 }}, 1fr);
@@ -218,29 +176,6 @@
             {%- endif -%}
           </ul>
         {%- endif -%}
-
-        {%- if section.settings.newsletter_enable -%}
-          <p class="af-news-label">{{ section.settings.newsletter_heading }}</p>
-          {%- form 'customer' -%}
-            <input type="hidden" name="contact[tags]" value="newsletter">
-            <div class="af-form">
-              <input
-                type="email"
-                name="contact[email]"
-                placeholder="Email address"
-                autocorrect="off"
-                autocapitalize="off"
-                required
-              >
-              <button type="submit" name="commit">Subscribe</button>
-            </div>
-            {%- if form.posted_successfully? -%}
-              <p class="af-news-msg">Thanks — you're on the list.</p>
-            {%- elsif form.errors -%}
-              <p class="af-news-msg">{{ form.errors.translated_fields.email | capitalize }} {{ form.errors.messages.email }}</p>
-            {%- endif -%}
-          {%- endform -%}
-        {%- endif -%}
       </div>
 
       <div class="af-cols">
@@ -331,9 +266,6 @@
     { "type": "text", "id": "contact_email", "label": "Email", "default": "care@miraggio.com" },
     { "type": "text", "id": "contact_phone", "label": "Phone", "default": "+91 98765 43210" },
     { "type": "text", "id": "contact_address", "label": "Address", "default": "Mon–Sat, 10am–7pm IST" },
-    { "type": "header", "content": "Newsletter" },
-    { "type": "checkbox", "id": "newsletter_enable", "label": "Show email signup", "default": true },
-    { "type": "text", "id": "newsletter_heading", "label": "Newsletter heading", "default": "Join the Miraggio world" },
     { "type": "header", "content": "Bottom note" },
     { "type": "text", "id": "bottom_note", "label": "Bottom note", "default": "Designed with love and made responsibly in India." },
     { "type": "header", "content": "Spacing" },
