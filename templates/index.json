@@ -111,6 +111,45 @@
         "padding_bottom": 36
       }
     },
+    "aurora_lookbook": {
+      "type": "aurora-lookbook",
+      "blocks": {
+        "card1": {
+          "type": "card",
+          "settings": {
+            "image_url": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=1200&q=80&auto=format&fit=crop",
+            "label": "The Everyday Tee",
+            "caption": "Heavyweight organic cotton, cut for a relaxed fit.",
+            "link": "shopify://products/aurora-organic-cotton-oversized-tee"
+          }
+        },
+        "card2": {
+          "type": "card",
+          "settings": {
+            "image_url": "https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=1200&q=80&auto=format&fit=crop",
+            "label": "Organic, Always",
+            "caption": "GOTS-certified fibres, low-impact dyes.",
+            "link": "shopify://collections/all"
+          }
+        },
+        "card3": {
+          "type": "card",
+          "settings": {
+            "image_url": "https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=1200&q=80&auto=format&fit=crop",
+            "label": "Made to Last",
+            "caption": "Built for the long wear, not the trend cycle.",
+            "link": "shopify://collections/all"
+          }
+        }
+      },
+      "block_order": ["card1", "card2", "card3"],
+      "settings": {
+        "eyebrow": "The lookbook",
+        "heading": "Made to be worn every day",
+        "padding_top": 72,
+        "padding_bottom": 72
+      }
+    },
     "multicolumn": {
       "type": "multicolumn",
       "blocks": {
@@ -222,6 +261,7 @@
     "aurora_hero",
     "rich_text",
     "featured_product",
+    "aurora_lookbook",
     "multicolumn",
     "featured_collection",
     "newsletter"
