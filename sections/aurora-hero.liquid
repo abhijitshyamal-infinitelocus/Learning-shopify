@@ -207,31 +207,52 @@
     #AuroraHero-{{ section.id }} .ah-tag { transform: rotate(2deg); }
   }
 
-  /* Transparent navbar overlaid on the hero (homepage only — this CSS ships with the hero section) */
-  .header-wrapper {
-    position: absolute !important;
+  /* Luxury transparent header overlaid on the hero (homepage only — this CSS ships with the hero section) */
+  .shopify-section-group-header-group {
+    position: absolute;
     top: 0;
     left: 0;
     right: 0;
     z-index: 4;
-    background: linear-gradient(180deg, rgba(28, 22, 20, 0.55) 0%, rgba(28, 22, 20, 0) 100%) !important;
-    border-bottom: 0 !important;
+    background: linear-gradient(180deg, rgba(28, 22, 20, 0.5) 0%, rgba(28, 22, 20, 0) 100%);
   }
-  .header-wrapper .header,
-  .header-wrapper .header__heading-link,
-  .header-wrapper .header__heading-link .h2,
-  .header-wrapper .header__menu-item,
-  .header-wrapper .header__menu-item span,
-  .header-wrapper .header__active-menu-item,
-  .header-wrapper .list-menu__item {
+  .shopify-section-group-header-group .announcement-bar,
+  .shopify-section-group-header-group .header-wrapper,
+  .shopify-section-group-header-group .header {
+    background: transparent !important;
+    border: 0 !important;
+  }
+  .shopify-section-group-header-group,
+  .shopify-section-group-header-group a,
+  .shopify-section-group-header-group .announcement-bar__message,
+  .shopify-section-group-header-group .header__heading-link,
+  .shopify-section-group-header-group .header__menu-item,
+  .shopify-section-group-header-group .header__menu-item span,
+  .shopify-section-group-header-group .header__active-menu-item,
+  .shopify-section-group-header-group .header__icon {
     color: #F5ECE6 !important;
   }
-  .header-wrapper .header__icon,
-  .header-wrapper .header__icon .icon,
-  .header-wrapper .header__icon svg {
+  .shopify-section-group-header-group .header__icon .icon,
+  .shopify-section-group-header-group .header__icon svg {
     color: #F5ECE6 !important;
   }
-  .header-wrapper .header__menu-item:hover span { text-decoration-color: #C4A46A; }
+  .shopify-section-group-header-group .header__menu-item span,
+  .shopify-section-group-header-group .header__active-menu-item {
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: 0.78rem;
+    font-weight: 500;
+  }
+  .shopify-section-group-header-group .header__heading-link {
+    text-transform: uppercase;
+    letter-spacing: 0.28em;
+    font-weight: 700;
+  }
+  .shopify-section-group-header-group .announcement-bar__message {
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 0.72rem;
+  }
 {%- endstyle -%}
 
 {%- if section.settings.background_image != blank -%}
