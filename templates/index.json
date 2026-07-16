@@ -212,7 +212,7 @@
       },
       "blocks": {
         "l1": { "type": "logo", "settings": { "text": "BAZAAR", "style": "serif" } },
-        "l2": { "type": "logo", "settings": { "text": "COSMOPOLITAN", "style": "bold" } },
+        "l2": { "type": "logo", "settings": { "text": "COSMOPOLITAN", "style": "bold", "color": "#EC008C" } },
         "l3": { "type": "logo", "settings": { "text": "ELLE", "style": "serif" } },
         "l4": { "type": "logo", "settings": { "text": "GRAZIA", "style": "serif" } },
         "l5": { "type": "logo", "settings": { "text": "VOGUE", "style": "serif" } }

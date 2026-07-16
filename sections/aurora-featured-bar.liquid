@@ -79,7 +79,7 @@
           {%- for r in (1..4) -%}
             {%- for block in section.blocks -%}
               {%- if block.settings.text != blank -%}
-                <span class="fb-logo fb-logo--{{ block.settings.style }}"{% if i == 1 and r == 1 %} {{ block.shopify_attributes }}{% endif %}>{{ block.settings.text }}</span>
+                <span class="fb-logo fb-logo--{{ block.settings.style }}"{% if block.settings.color != blank %} style="color: {{ block.settings.color }};"{% endif %}{% if i == 1 and r == 1 %} {{ block.shopify_attributes }}{% endif %}>{{ block.settings.text }}</span>
               {%- endif -%}
             {%- endfor -%}
           {%- endfor -%}
@@ -106,6 +106,7 @@
       "name": "Logo",
       "settings": [
         { "type": "text", "id": "text", "label": "Logo text", "default": "BAZAAR" },
+        { "type": "color", "id": "color", "label": "Text color", "info": "Optional; overrides the section text colour." },
         {
           "type": "select",
           "id": "style",
