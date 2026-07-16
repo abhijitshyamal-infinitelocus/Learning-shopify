@@ -1,0 +1,134 @@
+{%- style -%}
+  #FeaturedBar-{{ section.id }} {
+    --fb-espresso: #2A1116;
+    --fb-cream: #F4ECDE;
+    --fb-clay: #C9A24B;
+    background: var(--fb-espresso);
+    color: var(--fb-cream);
+    overflow: hidden;
+  }
+  #FeaturedBar-{{ section.id }} .fb-inner {
+    padding: {{ section.settings.padding_top }}px 0 {{ section.settings.padding_bottom }}px;
+  }
+  #FeaturedBar-{{ section.id }} .fb-eyebrow {
+    text-align: center;
+    font-size: 0.78rem;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--fb-clay);
+    margin: 0 0 1.6rem;
+  }
+  #FeaturedBar-{{ section.id }} .fb-marquee {
+    display: flex;
+    width: max-content;
+    animation: fb-scroll-{{ section.id }} {{ section.settings.speed }}s linear infinite;
+  }
+  #FeaturedBar-{{ section.id }}:hover .fb-marquee {
+    animation-play-state: paused;
+  }
+  #FeaturedBar-{{ section.id }} .fb-track {
+    display: flex;
+    align-items: center;
+    gap: 5rem;
+    padding-right: 5rem;
+    flex: none;
+  }
+  #FeaturedBar-{{ section.id }} .fb-logo {
+    font-size: clamp(1.6rem, 3.2vw, 2.6rem);
+    line-height: 1;
+    white-space: nowrap;
+    color: var(--fb-cream);
+  }
+  #FeaturedBar-{{ section.id }} .fb-logo--serif { font-family: var(--font-heading-family, serif); font-weight: 500; letter-spacing: 0.02em; }
+  #FeaturedBar-{{ section.id }} .fb-logo--sans { font-family: var(--font-body-family, sans-serif); font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; }
+  #FeaturedBar-{{ section.id }} .fb-logo--bold { font-family: var(--font-body-family, sans-serif); font-weight: 800; letter-spacing: 0.02em; text-transform: uppercase; }
+  @keyframes fb-scroll-{{ section.id }} {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    #FeaturedBar-{{ section.id }} .fb-marquee {
+      animation: none;
+      width: 100%;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    #FeaturedBar-{{ section.id }} .fb-track:last-child { display: none; }
+    #FeaturedBar-{{ section.id }} .fb-track {
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem 4rem;
+      padding-right: 0;
+    }
+  }
+  @media screen and (max-width: 749px) {
+    #FeaturedBar-{{ section.id }} .fb-track { gap: 3rem; padding-right: 3rem; }
+  }
+{%- endstyle -%}
+
+<section id="FeaturedBar-{{ section.id }}">
+  <div class="fb-inner">
+    {%- if section.settings.eyebrow != blank -%}
+      <p class="fb-eyebrow">{{ section.settings.eyebrow }}</p>
+    {%- endif -%}
+    <div class="fb-marquee">
+      {%- comment -%} Rendered twice so the loop is seamless {%- endcomment -%}
+      {%- for i in (1..2) -%}
+        <div class="fb-track" aria-hidden="{% if i == 2 %}true{% else %}false{% endif %}">
+          {%- for block in section.blocks -%}
+            {%- if block.settings.text != blank -%}
+              <span class="fb-logo fb-logo--{{ block.settings.style }}" {{ block.shopify_attributes }}>{{ block.settings.text }}</span>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Aurora featured bar",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Featured on" },
+    { "type": "range", "id": "speed", "min": 10, "max": 60, "step": 2, "unit": "s", "label": "Scroll duration (lower = faster)", "default": 30 },
+    { "type": "range", "id": "padding_top", "min": 8, "max": 80, "step": 2, "unit": "px", "label": "Top padding", "default": 40 },
+    { "type": "range", "id": "padding_bottom", "min": 8, "max": 80, "step": 2, "unit": "px", "label": "Bottom padding", "default": 40 }
+  ],
+  "blocks": [
+    {
+      "type": "logo",
+      "name": "Logo",
+      "settings": [
+        { "type": "text", "id": "text", "label": "Logo text", "default": "BAZAAR" },
+        {
+          "type": "select",
+          "id": "style",
+          "label": "Font style",
+          "default": "serif",
+          "options": [
+            { "value": "serif", "label": "Serif" },
+            { "value": "sans", "label": "Sans" },
+            { "value": "bold", "label": "Bold" }
+          ]
+        }
+      ]
+    }
+  ],
+  "max_blocks": 12,
+  "presets": [
+    {
+      "name": "Aurora featured bar",
+      "blocks": [
+        { "type": "logo", "settings": { "text": "BAZAAR", "style": "serif" } },
+        { "type": "logo", "settings": { "text": "COSMOPOLITAN", "style": "bold" } },
+        { "type": "logo", "settings": { "text": "ELLE", "style": "serif" } },
+        { "type": "logo", "settings": { "text": "GRAZIA", "style": "serif" } },
+        { "type": "logo", "settings": { "text": "VOGUE", "style": "serif" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
