@@ -28,6 +28,74 @@
         "padding_bottom": 104
       }
     },
+    "aurora_offer_strip": {
+      "type": "aurora-offer-strip",
+      "blocks": {
+        "o1": { "type": "item", "settings": { "text": "Free shipping over ₹1499" } },
+        "o2": { "type": "item", "settings": { "text": "10% off your first order" } },
+        "o3": { "type": "item", "settings": { "text": "1-year warranty" } }
+      },
+      "block_order": ["o1", "o2", "o3"],
+      "settings": { "padding_top": 16, "padding_bottom": 16 }
+    },
+    "aurora_promo": {
+      "type": "aurora-promo",
+      "settings": {
+        "image_url": "https://images.unsplash.com/photo-1591561954557-26941169b49e?w=2000&q=80&auto=format&fit=crop",
+        "overlay_opacity": 55,
+        "height": 460,
+        "text_align": "left",
+        "eyebrow": "New season",
+        "heading": "The autumn <em>edit</em>",
+        "subtext": "Warm tones, structured shapes, and hardware that catches the light.",
+        "button_label": "Shop new in",
+        "button_link": "shopify://collections/all"
+      }
+    },
+    "aurora_feature": {
+      "type": "aurora-feature",
+      "settings": {
+        "image_url": "https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?w=1200&q=80&auto=format&fit=crop",
+        "image_position": "left",
+        "eyebrow": "Designed in India",
+        "heading": "Considered shapes, <em>lasting</em> hardware",
+        "text": "<p>Every Miraggio bag starts as a sketch in our in-house studio. We obsess over proportion, weight, and the way a strap sits on the shoulder — then finish it in buttery vegan leather built to hold its shape season after season.</p>",
+        "button_label": "Our story",
+        "button_link": "shopify://collections/all",
+        "padding_top": 72,
+        "padding_bottom": 72
+      }
+    },
+    "aurora_tiles": {
+      "type": "aurora-tiles",
+      "blocks": {
+        "t1": {
+          "type": "tile",
+          "settings": {
+            "image_url": "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=1400&q=80&auto=format&fit=crop",
+            "label": "The Totes",
+            "cta": "Shop totes",
+            "link": "shopify://collections/all"
+          }
+        },
+        "t2": {
+          "type": "tile",
+          "settings": {
+            "image_url": "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=1400&q=80&auto=format&fit=crop",
+            "label": "The Slings",
+            "cta": "Shop slings",
+            "link": "shopify://collections/all"
+          }
+        }
+      },
+      "block_order": ["t1", "t2"],
+      "settings": {
+        "eyebrow": "Shop the edit",
+        "heading": "Two ways to carry it",
+        "padding_top": 72,
+        "padding_bottom": 72
+      }
+    },
     "aurora_lookbook": {
       "type": "aurora-lookbook",
       "blocks": {
@@ -57,18 +125,9 @@
             "caption": "A compact statement for nights out.",
             "link": "shopify://collections/all"
           }
-        },
-        "card4": {
-          "type": "card",
-          "settings": {
-            "image_url": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=1200&q=80&auto=format&fit=crop",
-            "label": "The Mini Backpack",
-            "caption": "City-ready, with a soft quilted finish.",
-            "link": "shopify://collections/all"
-          }
         }
       },
-      "block_order": ["card1", "card2", "card3", "card4"],
+      "block_order": ["card1", "card2", "card3"],
       "settings": {
         "eyebrow": "Shop by style",
         "heading": "Find your everyday bag",
@@ -204,9 +263,13 @@
   },
   "order": [
     "aurora_hero",
+    "aurora_offer_strip",
     "aurora_lookbook",
+    "aurora_promo",
     "rich_text",
     "multicolumn",
+    "aurora_feature",
+    "aurora_tiles",
     "featured_collection",
     "newsletter"
   ]
