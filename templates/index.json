@@ -41,7 +41,7 @@
     "aurora_promo": {
       "type": "aurora-promo",
       "settings": {
-        "image_url": "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=2000&q=80&auto=format&fit=crop",
+        "image_url": "https://images.unsplash.com/photo-1601924582970-9238bcb495d9?w=2000&q=80&auto=format&fit=crop",
         "overlay_opacity": 45,
         "height": 460,
         "text_align": "left",
