@@ -2,10 +2,10 @@
   #News-{{ section.id }} {
     --nw-espresso: #2A1116;
     --nw-cream: #F4ECDE;
-    --nw-clay: #C9A24B;
-    --nw-line: rgba(244, 236, 222, 0.22);
-    background: var(--nw-espresso);
-    color: var(--nw-cream);
+    --nw-clay: #B0863F;
+    --nw-line: rgba(42, 17, 22, 0.22);
+    background: var(--nw-cream);
+    color: var(--nw-espresso);
   }
   #News-{{ section.id }} .nw-inner {
     max-width: 640px;
@@ -22,7 +22,7 @@
   }
   #News-{{ section.id }} .nw-heading {
     font-family: var(--font-heading-family, inherit);
-    color: var(--nw-cream);
+    color: var(--nw-espresso);
     font-weight: 800;
     text-transform: uppercase;
     letter-spacing: -0.01em;
@@ -33,7 +33,7 @@
   #News-{{ section.id }} .nw-text {
     font-size: 1.05rem;
     line-height: 1.6;
-    color: rgba(244, 236, 222, 0.78);
+    color: rgba(42, 17, 22, 0.72);
     margin: 0 0 2rem;
   }
   #News-{{ section.id }} .nw-form {
@@ -43,22 +43,22 @@
     border: 1px solid var(--nw-line);
     border-radius: 4px;
     overflow: hidden;
-    background: rgba(244, 236, 222, 0.04);
+    background: rgba(42, 17, 22, 0.03);
   }
   #News-{{ section.id }} .nw-form input[type="email"] {
     flex: 1;
     background: transparent;
     border: 0;
     padding: 1rem 1.1rem;
-    color: var(--nw-cream);
+    color: var(--nw-espresso);
     font-size: 0.95rem;
     min-width: 0;
   }
-  #News-{{ section.id }} .nw-form input::placeholder { color: rgba(244, 236, 222, 0.5); }
+  #News-{{ section.id }} .nw-form input::placeholder { color: rgba(42, 17, 22, 0.45); }
   #News-{{ section.id }} .nw-form input:focus { outline: none; }
   #News-{{ section.id }} .nw-form button {
-    background: var(--nw-cream);
-    color: var(--nw-espresso);
+    background: var(--nw-espresso);
+    color: var(--nw-cream);
     border: 0;
     padding: 0 1.6rem;
     font-size: 0.78rem;
