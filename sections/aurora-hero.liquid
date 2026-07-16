@@ -1,16 +1,16 @@
 {%- style -%}
   #AuroraHero-{{ section.id }} {
-    --ah-espresso: #2A2721;
-    --ah-cream: #F6F0E6;
-    --ah-clay: #B08863;
-    --ah-oat: #EDE4D5;
-    --ah-olive: #6E7259;
+    --ah-espresso: #221C1A;
+    --ah-cream: #F5ECE6;
+    --ah-clay: #C4A46A;
+    --ah-oat: #EEE1D7;
+    --ah-olive: #A9756B;
     position: relative;
     overflow: hidden;
     background-color: var(--ah-espresso);
     background-image:
-      linear-gradient(90deg, rgba(33, 30, 25, 0.94) 0%, rgba(33, 30, 25, 0.66) 48%, rgba(33, 30, 25, 0.40) 100%),
-      url("https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=2000&q=80&auto=format&fit=crop");
+      linear-gradient(90deg, rgba(28, 22, 20, 0.92) 0%, rgba(28, 22, 20, 0.60) 46%, rgba(28, 22, 20, 0.30) 100%),
+      url("https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=2000&q=80&auto=format&fit=crop");
     background-size: cover, cover;
     background-repeat: no-repeat, no-repeat;
     background-position: center, center;
@@ -246,12 +246,12 @@
         <p class="ah-tag-brand">{{ section.settings.tag_brand | escape }}</p>
         <p class="ah-tag-material">{{ section.settings.tag_material | escape | newline_to_br }}</p>
         <div class="ah-tag-rows">
-          <div class="ah-tag-row"><span>Weight</span><span>{{ section.settings.tag_weight | escape }}</span></div>
-          <div class="ah-tag-row"><span>Fit</span><span>{{ section.settings.tag_fit | escape }}</span></div>
-          <div class="ah-tag-row"><span>Origin</span><span>{{ section.settings.tag_origin | escape }}</span></div>
+          <div class="ah-tag-row"><span>Material</span><span>{{ section.settings.tag_weight | escape }}</span></div>
+          <div class="ah-tag-row"><span>Style</span><span>{{ section.settings.tag_fit | escape }}</span></div>
+          <div class="ah-tag-row"><span>Made</span><span>{{ section.settings.tag_origin | escape }}</span></div>
         </div>
         <div class="ah-barcode" role="presentation"></div>
-        <p class="ah-barcode-label">AURORA · ORGANIC</p>
+        <p class="ah-barcode-label">MIRAGGIO · ORIGINAL</p>
       </div>
     </div>
   </div>

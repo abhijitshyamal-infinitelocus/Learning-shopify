@@ -12,103 +12,20 @@
     "aurora_hero": {
       "type": "aurora-hero",
       "settings": {
-        "eyebrow": "Organic cotton essentials",
-        "heading": "Everyday cotton, made <em>honestly</em>.",
-        "subtext": "GOTS-certified organic basics — heavyweight, unisex, and built to outlast the trend cycle.",
-        "button_label": "Shop the tee",
-        "button_link": "shopify://products/aurora-organic-cotton-oversized-tee",
-        "button_label_2": "Browse all",
-        "button_link_2": "shopify://collections/all",
-        "tag_brand": "Aurora Basics",
-        "tag_material": "100% Organic Cotton",
-        "tag_weight": "240 GSM",
-        "tag_fit": "Unisex",
-        "tag_origin": "Made fair",
-        "padding_top": 96,
-        "padding_bottom": 96
-      }
-    },
-    "rich_text": {
-      "type": "rich-text",
-      "blocks": {
-        "heading": {
-          "type": "heading",
-          "settings": {
-            "heading": "Fewer, better things.",
-            "heading_size": "h1"
-          }
-        },
-        "text": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Aurora Basics started with a simple idea: an everyday wardrobe shouldn't cost the earth. Every piece is cut from GOTS-certified organic cotton, dyed with low-impact colours, and made in fair-wage facilities. Buy less, wear it longer.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "heading",
-        "text"
-      ],
-      "settings": {
-        "desktop_content_position": "center",
-        "content_alignment": "center",
-        "color_scheme": "scheme-1",
-        "full_width": true,
-        "padding_top": 40,
-        "padding_bottom": 40
-      }
-    },
-    "featured_product": {
-      "type": "featured-product",
-      "blocks": {
-        "title": {
-          "type": "title",
-          "settings": {}
-        },
-        "price": {
-          "type": "price",
-          "settings": {}
-        },
-        "text": {
-          "type": "text",
-          "settings": {
-            "text": "100% organic cotton · 240 GSM heavyweight · unisex fit",
-            "text_style": "body"
-          }
-        },
-        "variant_picker": {
-          "type": "variant_picker",
-          "settings": {
-            "picker_type": "button"
-          }
-        },
-        "buy_buttons": {
-          "type": "buy_buttons",
-          "settings": {
-            "show_dynamic_checkout": true
-          }
-        }
-      },
-      "block_order": [
-        "title",
-        "price",
-        "text",
-        "variant_picker",
-        "buy_buttons"
-      ],
-      "settings": {
-        "product": "aurora-organic-cotton-oversized-tee",
-        "color_scheme": "scheme-2",
-        "secondary_background": true,
-        "media_size": "medium",
-        "constrain_to_viewport": true,
-        "media_fit": "contain",
-        "media_position": "left",
-        "image_zoom": "lightbox",
-        "hide_variants": false,
-        "enable_video_looping": false,
-        "padding_top": 36,
-        "padding_bottom": 36
+        "eyebrow": "Miraggio · Women's bags",
+        "heading": "Carry a little <em>magic</em>.",
+        "subtext": "Vegan-leather handbags, slings, and clutches — designed in India to elevate your everyday.",
+        "button_label": "Shop the collection",
+        "button_link": "shopify://collections/all",
+        "button_label_2": "Discover Miraggio",
+        "button_link_2": "",
+        "tag_brand": "Miraggio",
+        "tag_material": "Vegan Leather",
+        "tag_weight": "Pebbled PU",
+        "tag_fit": "Structured Tote",
+        "tag_origin": "India",
+        "padding_top": 104,
+        "padding_bottom": 104
       }
     },
     "aurora_lookbook": {
@@ -117,37 +34,73 @@
         "card1": {
           "type": "card",
           "settings": {
-            "image_url": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=1200&q=80&auto=format&fit=crop",
-            "label": "The Everyday Tee",
-            "caption": "Heavyweight organic cotton, cut for a relaxed fit.",
-            "link": "shopify://products/aurora-organic-cotton-oversized-tee"
+            "image_url": "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=1200&q=80&auto=format&fit=crop",
+            "label": "The Structured Tote",
+            "caption": "Room for everything, built to keep its shape.",
+            "link": "shopify://collections/all"
           }
         },
         "card2": {
           "type": "card",
           "settings": {
-            "image_url": "https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=1200&q=80&auto=format&fit=crop",
-            "label": "Organic, Always",
-            "caption": "GOTS-certified fibres, low-impact dyes.",
+            "image_url": "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=1200&q=80&auto=format&fit=crop",
+            "label": "The Crossbody Sling",
+            "caption": "Hands-free ease on a chain-and-leather strap.",
             "link": "shopify://collections/all"
           }
         },
         "card3": {
           "type": "card",
           "settings": {
-            "image_url": "https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=1200&q=80&auto=format&fit=crop",
-            "label": "Made to Last",
-            "caption": "Built for the long wear, not the trend cycle.",
+            "image_url": "https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?w=1200&q=80&auto=format&fit=crop",
+            "label": "The Evening Clutch",
+            "caption": "A compact statement for nights out.",
+            "link": "shopify://collections/all"
+          }
+        },
+        "card4": {
+          "type": "card",
+          "settings": {
+            "image_url": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=1200&q=80&auto=format&fit=crop",
+            "label": "The Mini Backpack",
+            "caption": "City-ready, with a soft quilted finish.",
             "link": "shopify://collections/all"
           }
         }
       },
-      "block_order": ["card1", "card2", "card3"],
+      "block_order": ["card1", "card2", "card3", "card4"],
       "settings": {
-        "eyebrow": "The lookbook",
-        "heading": "Made to be worn every day",
-        "padding_top": 72,
-        "padding_bottom": 72
+        "eyebrow": "Shop by style",
+        "heading": "Find your everyday bag",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "rich_text": {
+      "type": "rich-text",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "More than a bag.",
+            "heading_size": "h1"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Miraggio began with a belief that a great bag is a little luxury you carry every day. We design vegan-leather pieces in India — considered shapes, hardware that lasts, and finishes that turn heads without turning up the price.</p>"
+          }
+        }
+      },
+      "block_order": ["heading", "text"],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-1",
+        "full_width": true,
+        "padding_top": 44,
+        "padding_bottom": 44
       }
     },
     "multicolumn": {
@@ -156,32 +109,28 @@
         "col1": {
           "type": "column",
           "settings": {
-            "title": "100% organic cotton",
-            "text": "<p>GOTS-certified, pesticide-free, and gentle on skin from the very first wear.</p>"
+            "title": "Premium vegan leather",
+            "text": "<p>Cruelty-free, buttery-soft finishes built to last season after season.</p>"
           }
         },
         "col2": {
           "type": "column",
           "settings": {
-            "title": "Ethically made",
-            "text": "<p>Produced in fair-wage facilities using low-impact dyes and water-saving processes.</p>"
+            "title": "Designed in India",
+            "text": "<p>Thoughtful shapes and hardware, drawn and refined in-house.</p>"
           }
         },
         "col3": {
           "type": "column",
           "settings": {
-            "title": "Easy 30-day returns",
-            "text": "<p>Not the right fit? Send it back within 30 days — no questions asked.</p>"
+            "title": "1-year warranty",
+            "text": "<p>Every bag is backed by a full year against manufacturing defects.</p>"
           }
         }
       },
-      "block_order": [
-        "col1",
-        "col2",
-        "col3"
-      ],
+      "block_order": ["col1", "col2", "col3"],
       "settings": {
-        "title": "Why Aurora",
+        "title": "The Miraggio promise",
         "heading_size": "h2",
         "image_width": "third",
         "image_ratio": "adapt",
@@ -192,8 +141,8 @@
         "color_scheme": "scheme-5",
         "columns_mobile": "1",
         "swipe_on_mobile": false,
-        "padding_top": 40,
-        "padding_bottom": 40
+        "padding_top": 44,
+        "padding_bottom": 44
       }
     },
     "featured_collection": {
@@ -201,7 +150,7 @@
       "settings": {
         "collection": "all",
         "products_to_show": 8,
-        "title": "Shop the range",
+        "title": "Shop all bags",
         "heading_size": "h2",
         "description": "",
         "show_description": false,
@@ -212,7 +161,7 @@
         "show_view_all": true,
         "view_all_style": "solid",
         "color_scheme": "scheme-1",
-        "image_ratio": "adapt",
+        "image_ratio": "portrait",
         "image_shape": "default",
         "show_secondary_image": true,
         "show_vendor": false,
@@ -230,13 +179,13 @@
         "heading": {
           "type": "heading",
           "settings": {
-            "heading": "Join the Aurora list"
+            "heading": "Join the Miraggio world"
           }
         },
         "paragraph": {
           "type": "paragraph",
           "settings": {
-            "text": "<p>Get 10% off your first order plus early access to new drops.</p>"
+            "text": "<p>Sign up for 10% off your first bag, plus first access to every new drop.</p>"
           }
         },
         "email_form": {
@@ -244,24 +193,19 @@
           "settings": {}
         }
       },
-      "block_order": [
-        "heading",
-        "paragraph",
-        "email_form"
-      ],
+      "block_order": ["heading", "paragraph", "email_form"],
       "settings": {
         "color_scheme": "scheme-3",
         "full_width": true,
-        "padding_top": 48,
-        "padding_bottom": 48
+        "padding_top": 52,
+        "padding_bottom": 52
       }
     }
   },
   "order": [
     "aurora_hero",
-    "rich_text",
-    "featured_product",
     "aurora_lookbook",
+    "rich_text",
     "multicolumn",
     "featured_collection",
     "newsletter"
