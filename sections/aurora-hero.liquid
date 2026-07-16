@@ -1,10 +1,10 @@
 {%- style -%}
   #AuroraHero-{{ section.id }} {
-    --ah-espresso: #221C1A;
-    --ah-cream: #F5ECE6;
-    --ah-clay: #C4A46A;
-    --ah-oat: #EEE1D7;
-    --ah-olive: #A9756B;
+    --ah-espresso: #3A141C;
+    --ah-cream: #F4ECDE;
+    --ah-clay: #C9A24B;
+    --ah-oat: #EFE3D2;
+    --ah-olive: #7A2E3B;
     position: relative;
     overflow: hidden;
     min-height: 74vh;
@@ -12,7 +12,7 @@
     align-items: center;
     background-color: var(--ah-espresso);
     background-image:
-      linear-gradient(90deg, rgba(28, 22, 20, 0.92) 0%, rgba(28, 22, 20, 0.60) 46%, rgba(28, 22, 20, 0.30) 100%),
+      linear-gradient(90deg, rgba(58, 20, 28, 0.92) 0%, rgba(58, 20, 28, 0.60) 46%, rgba(58, 20, 28, 0.30) 100%),
       url("https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=2000&q=80&auto=format&fit=crop");
     background-size: cover, cover;
     background-repeat: no-repeat, no-repeat;
@@ -215,7 +215,7 @@
     right: 0;
     z-index: 4;
     padding-bottom: 0.5rem;
-    background: linear-gradient(180deg, rgba(20, 15, 13, 0.92) 0%, rgba(20, 15, 13, 0.8) 70%, rgba(20, 15, 13, 0.55) 100%);
+    background: linear-gradient(180deg, rgba(42, 17, 22, 0.92) 0%, rgba(42, 17, 22, 0.8) 70%, rgba(42, 17, 22, 0.55) 100%);
   }
   .shopify-section-group-header-group .announcement-bar,
   .shopify-section-group-header-group .header-wrapper,
@@ -234,12 +234,12 @@
   .shopify-section-group-header-group .header__menu-item span,
   .shopify-section-group-header-group .header__active-menu-item,
   .shopify-section-group-header-group .header__icon {
-    color: #F5ECE6 !important;
+    color: #F4ECDE !important;
     text-shadow: 0 1px 10px rgba(0, 0, 0, 0.55);
   }
   .shopify-section-group-header-group .header__icon .icon,
   .shopify-section-group-header-group .header__icon svg {
-    color: #F5ECE6 !important;
+    color: #F4ECDE !important;
     filter: drop-shadow(0 1px 5px rgba(0, 0, 0, 0.55));
   }
   .shopify-section-group-header-group .header__menu-item span,
@@ -320,21 +320,21 @@
   "tag": "section",
   "class": "section",
   "settings": [
-    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Organic cotton essentials" },
-    { "type": "inline_richtext", "id": "heading", "label": "Heading", "default": "Everyday cotton, made <em>honestly</em>." },
-    { "type": "text", "id": "subtext", "label": "Subtext", "default": "GOTS-certified organic basics — heavyweight, unisex, and built to outlast the trend cycle." },
-    { "type": "text", "id": "button_label", "label": "Primary button label", "default": "Shop the tee" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Miraggio · Women's bags" },
+    { "type": "inline_richtext", "id": "heading", "label": "Heading", "default": "Carry a little <em>magic</em>." },
+    { "type": "text", "id": "subtext", "label": "Subtext", "default": "Vegan-leather handbags, slings, and clutches — designed in India to elevate your everyday." },
+    { "type": "text", "id": "button_label", "label": "Primary button label", "default": "Shop the collection" },
     { "type": "url", "id": "button_link", "label": "Primary button link" },
-    { "type": "text", "id": "button_label_2", "label": "Secondary button label", "default": "Our materials" },
+    { "type": "text", "id": "button_label_2", "label": "Secondary button label", "default": "Discover Miraggio" },
     { "type": "url", "id": "button_link_2", "label": "Secondary button link" },
     { "type": "header", "content": "Hangtag" },
-    { "type": "text", "id": "tag_brand", "label": "Tag brand", "default": "Aurora Basics" },
-    { "type": "text", "id": "tag_material", "label": "Tag material", "default": "100% Organic Cotton" },
-    { "type": "text", "id": "tag_weight", "label": "Weight", "default": "240 GSM" },
-    { "type": "text", "id": "tag_fit", "label": "Fit", "default": "Unisex" },
-    { "type": "text", "id": "tag_origin", "label": "Origin", "default": "Made fair" },
+    { "type": "text", "id": "tag_brand", "label": "Tag brand", "default": "Miraggio" },
+    { "type": "text", "id": "tag_material", "label": "Tag material", "default": "Vegan Leather" },
+    { "type": "text", "id": "tag_weight", "label": "Material", "default": "Pebbled PU" },
+    { "type": "text", "id": "tag_fit", "label": "Style", "default": "Structured Tote" },
+    { "type": "text", "id": "tag_origin", "label": "Made", "default": "India" },
     { "type": "header", "content": "Background" },
-    { "type": "image_picker", "id": "background_image", "label": "Background image", "info": "Optional. Layers under a readability overlay. Leave empty to use the woven-texture default." },
+    { "type": "image_picker", "id": "background_image", "label": "Background image", "info": "Optional. Layers under a readability overlay. Leave empty to use the default bag imagery." },
     { "type": "range", "id": "overlay_opacity", "min": 0, "max": 90, "step": 5, "unit": "%", "label": "Image darken overlay", "default": 55 },
     { "type": "header", "content": "Spacing" },
     { "type": "range", "id": "padding_top", "min": 40, "max": 160, "step": 4, "unit": "px", "label": "Top padding", "default": 96 },
