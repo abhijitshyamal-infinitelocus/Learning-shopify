@@ -100,6 +100,63 @@
   }
 {%- endstyle -%}
 
+{%- if request.page_type == 'index' -%}
+  {%- style -%}
+    /* Homepage: header sits transparent over the hero, then turns solid with black text once scrolled past it */
+    .shopify-section-group-header-group.section-header {
+      position: sticky;
+      top: 0;
+      z-index: 5;
+    }
+    #shopify-section-{{ section.id }} .header-wrapper {
+      --color-foreground: 244, 236, 222;
+      background: transparent;
+      border-bottom: 0;
+      transition: background 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+    }
+    #shopify-section-{{ section.id }} .header-wrapper.header-wrapper--solid {
+      --color-foreground: 18, 18, 18;
+      background: rgb(var(--color-background));
+      box-shadow: 0 0.1rem 1rem rgba(0, 0, 0, 0.06);
+    }
+  {%- endstyle -%}
+  <script>
+    (function () {
+      function init() {
+        var group = document.querySelector('.shopify-section-group-header-group');
+        var wrapper = document.querySelector('#shopify-section-{{ section.id }} .header-wrapper');
+        var hero = document.querySelector('[id^="AuroraHero-"]');
+        if (!group || !wrapper || !hero) return;
+        var heroSection = hero.closest('.shopify-section') || hero;
+
+        function applyOffset() {
+          heroSection.style.marginTop = '-' + group.offsetHeight + 'px';
+        }
+
+        var ticking = false;
+        function update() {
+          ticking = false;
+          var solid = hero.getBoundingClientRect().bottom <= group.offsetHeight;
+          wrapper.classList.toggle('header-wrapper--solid', solid);
+        }
+        function onScroll() {
+          if (!ticking) { ticking = true; requestAnimationFrame(update); }
+        }
+
+        applyOffset();
+        update();
+        window.addEventListener('scroll', onScroll, { passive: true });
+        window.addEventListener('resize', function () { applyOffset(); update(); });
+      }
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+      } else {
+        init();
+      }
+    })();
+  </script>
+{%- endif -%}
+
 <script src="{{ 'cart-notification.js' | asset_url }}" defer="defer"></script>
 
 {%- liquid
