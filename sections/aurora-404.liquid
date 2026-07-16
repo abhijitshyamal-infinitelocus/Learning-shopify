@@ -1,0 +1,105 @@
+{%- style -%}
+  #NotFound-{{ section.id }} {
+    --nf-espresso: #2A1116;
+    --nf-cream: #F4ECDE;
+    --nf-clay: #C9A24B;
+    background: var(--nf-cream);
+    color: var(--nf-espresso);
+  }
+  #NotFound-{{ section.id }} .nf-inner {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: {{ section.settings.padding_top }}px 1.5rem {{ section.settings.padding_bottom }}px;
+    text-align: center;
+  }
+  #NotFound-{{ section.id }} .nf-code {
+    font-family: var(--font-heading-family, inherit);
+    font-weight: 800;
+    line-height: 1;
+    font-size: clamp(5rem, 18vw, 11rem);
+    letter-spacing: -0.02em;
+    color: var(--nf-clay);
+    margin: 0 0 0.4rem;
+  }
+  #NotFound-{{ section.id }} .nf-eyebrow {
+    font-size: 0.78rem;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--nf-clay);
+    margin: 0 0 1rem;
+  }
+  #NotFound-{{ section.id }} .nf-heading {
+    font-family: var(--font-heading-family, inherit);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+    line-height: 1.02;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    margin: 0 0 1rem;
+  }
+  #NotFound-{{ section.id }} .nf-text {
+    font-size: 1.08rem;
+    line-height: 1.6;
+    color: rgba(42, 17, 22, 0.72);
+    margin: 0 auto 2.2rem;
+    max-width: 46ch;
+  }
+  #NotFound-{{ section.id }} .nf-cta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.9rem;
+    justify-content: center;
+  }
+  #NotFound-{{ section.id }} .nf-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 2.2rem;
+    font-size: 0.82rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background 0.2s ease, color 0.2s ease, transform 0.18s ease;
+  }
+  #NotFound-{{ section.id }} .nf-btn--solid { background: var(--nf-espresso); color: var(--nf-cream); }
+  #NotFound-{{ section.id }} .nf-btn--solid:hover { background: var(--nf-clay); color: var(--nf-espresso); transform: translateY(-2px); }
+  #NotFound-{{ section.id }} .nf-btn--ghost { border: 1px solid rgba(42, 17, 22, 0.28); color: var(--nf-espresso); }
+  #NotFound-{{ section.id }} .nf-btn--ghost:hover { border-color: var(--nf-clay); color: var(--nf-clay); transform: translateY(-2px); }
+{%- endstyle -%}
+
+<section id="NotFound-{{ section.id }}">
+  <div class="nf-inner">
+    <p class="nf-code">404</p>
+    {%- if section.settings.eyebrow != blank -%}
+      <p class="nf-eyebrow">{{ section.settings.eyebrow }}</p>
+    {%- endif -%}
+    {%- if section.settings.heading != blank -%}
+      <h1 class="nf-heading">{{ section.settings.heading }}</h1>
+    {%- endif -%}
+    {%- if section.settings.text != blank -%}
+      <p class="nf-text">{{ section.settings.text }}</p>
+    {%- endif -%}
+    <div class="nf-cta">
+      <a href="{{ routes.all_products_collection_url }}" class="nf-btn nf-btn--solid">{{ section.settings.button_label | default: 'Shop all bags' }}</a>
+      <a href="{{ routes.root_url }}" class="nf-btn nf-btn--ghost">Back home</a>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Aurora 404",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Lost your way?" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "This page slipped out of the bag" },
+    { "type": "text", "id": "text", "label": "Text", "default": "The page you're after isn't here — but your next favourite bag might be. Let's get you back to the good stuff." },
+    { "type": "text", "id": "button_label", "label": "Button label", "default": "Shop all bags" },
+    { "type": "range", "id": "padding_top", "min": 40, "max": 200, "step": 4, "unit": "px", "label": "Top padding", "default": 120 },
+    { "type": "range", "id": "padding_bottom", "min": 40, "max": 200, "step": 4, "unit": "px", "label": "Bottom padding", "default": 120 }
+  ],
+  "presets": [{ "name": "Aurora 404" }]
+}
+{% endschema %}

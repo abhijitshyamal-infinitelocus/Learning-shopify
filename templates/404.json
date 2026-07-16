@@ -1,10 +1,28 @@
 {
   "sections": {
-    "main": {
-      "type": "main-404"
+    "notfound": {
+      "type": "aurora-404",
+      "settings": {
+        "eyebrow": "Lost your way?",
+        "heading": "This page slipped out of the bag",
+        "text": "The page you're after isn't here — but your next favourite bag might be. Let's get you back to the good stuff.",
+        "button_label": "Shop all bags",
+        "padding_top": 120,
+        "padding_bottom": 120
+      }
+    },
+    "featured_bar": {
+      "type": "aurora-featured-bar",
+      "settings": { "eyebrow": "Featured on", "speed": 30, "padding_top": 36, "padding_bottom": 36 },
+      "blocks": {
+        "l1": { "type": "logo", "settings": { "text": "BAZAAR", "style": "serif" } },
+        "l2": { "type": "logo", "settings": { "text": "COSMOPOLITAN", "style": "bold", "color": "#EC008C" } },
+        "l3": { "type": "logo", "settings": { "text": "ELLE", "style": "serif" } },
+        "l4": { "type": "logo", "settings": { "text": "GRAZIA", "style": "serif" } },
+        "l5": { "type": "logo", "settings": { "text": "VOGUE", "style": "serif" } }
+      },
+      "block_order": ["l1", "l2", "l3", "l4", "l5"]
     }
   },
-  "order": [
-    "main"
-  ]
+  "order": ["notfound", "featured_bar"]
 }

@@ -1,12 +1,22 @@
 {
   "sections": {
+    "offer_strip": {
+      "type": "aurora-offer-strip",
+      "blocks": {
+        "o1": { "type": "item", "settings": { "text": "Free shipping over ₹1499" } },
+        "o2": { "type": "item", "settings": { "text": "10% off your first order" } },
+        "o3": { "type": "item", "settings": { "text": "1-year warranty" } }
+      },
+      "block_order": ["o1", "o2", "o3"],
+      "settings": { "padding_top": 16, "padding_bottom": 16 }
+    },
     "main": {
       "type": "main-search",
       "settings": {
         "columns_desktop": 4,
-        "image_ratio": "adapt",
+        "image_ratio": "portrait",
         "image_shape": "default",
-        "show_secondary_image": false,
+        "show_secondary_image": true,
         "show_vendor": false,
         "show_rating": false,
         "enable_filtering": true,
@@ -21,6 +31,7 @@
     }
   },
   "order": [
+    "offer_strip",
     "main"
   ]
 }

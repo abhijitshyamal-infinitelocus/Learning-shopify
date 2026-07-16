@@ -93,11 +93,34 @@
         "padding_top": 36,
         "padding_bottom": 28
       }
+    },
+    "offer_strip": {
+      "type": "aurora-offer-strip",
+      "blocks": {
+        "o1": { "type": "item", "settings": { "text": "Free shipping over ₹1499" } },
+        "o2": { "type": "item", "settings": { "text": "Easy 30-day returns" } },
+        "o3": { "type": "item", "settings": { "text": "1-year warranty" } }
+      },
+      "block_order": ["o1", "o2", "o3"],
+      "settings": { "padding_top": 16, "padding_bottom": 16 }
+    },
+    "newsletter": {
+      "type": "aurora-newsletter",
+      "settings": {
+        "eyebrow": "Newsletter",
+        "heading": "Join the Miraggio world",
+        "text": "<p>Sign up for 10% off your first bag, plus first access to every new drop.</p>",
+        "button_label": "Subscribe",
+        "padding_top": 72,
+        "padding_bottom": 72
+      }
     }
   },
   "order": [
+    "offer_strip",
     "main",
     "disclosures",
-    "related-products"
+    "related-products",
+    "newsletter"
   ]
 }
