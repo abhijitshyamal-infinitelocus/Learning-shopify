@@ -1,0 +1,210 @@
+{%- style -%}
+  #Coll-{{ section.id }} {
+    --co-espresso: #3A141C;
+    --co-cream: #F4ECDE;
+    --co-oat: #EFE3D2;
+    --co-clay: #C9A24B;
+    --co-olive: #7A2E3B;
+    background: var(--co-cream);
+    color: var(--co-espresso);
+  }
+  #Coll-{{ section.id }} .co-inner {
+    max-width: var(--page-width, 1200px);
+    margin: 0 auto;
+    padding: {{ section.settings.padding_top }}px 2.5rem {{ section.settings.padding_bottom }}px;
+  }
+  #Coll-{{ section.id }} .co-head {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1rem;
+    margin: 0 0 2.4rem;
+  }
+  #Coll-{{ section.id }} .co-eyebrow {
+    font-size: 0.78rem;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--co-clay);
+    margin: 0 0 0.8rem;
+  }
+  #Coll-{{ section.id }} .co-title {
+    font-family: var(--font-heading-family, inherit);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+    line-height: 1;
+    font-size: clamp(2rem, 4vw, 3.1rem);
+    margin: 0;
+  }
+  #Coll-{{ section.id }} .co-viewall {
+    flex: none;
+    font-size: 0.78rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--co-espresso);
+    border-bottom: 1px solid var(--co-clay);
+    padding-bottom: 0.3rem;
+    transition: color 0.18s ease;
+  }
+  #Coll-{{ section.id }} .co-viewall:hover { color: var(--co-olive); }
+  #Coll-{{ section.id }} .co-grid {
+    display: grid;
+    grid-template-columns: repeat({{ section.settings.columns_desktop }}, 1fr);
+    gap: 1.6rem 1.4rem;
+  }
+  #Coll-{{ section.id }} .co-card { text-decoration: none; color: inherit; display: block; }
+  #Coll-{{ section.id }} .co-frame {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    aspect-ratio: 3 / 4;
+    background: var(--co-oat);
+  }
+  #Coll-{{ section.id }} .co-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s cubic-bezier(0.22, 0.61, 0.36, 1);
+  }
+  #Coll-{{ section.id }} .co-card:hover .co-frame img { transform: scale(1.05); }
+  /* Branded fallback when a product has no image */
+  #Coll-{{ section.id }} .co-placeholder {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: linear-gradient(135deg, var(--co-oat) 0%, #E7D6BE 100%);
+    color: var(--co-espresso);
+  }
+  #Coll-{{ section.id }} .co-placeholder .co-ph-brand {
+    font-family: var(--font-heading-family, inherit);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 1.25rem;
+  }
+  #Coll-{{ section.id }} .co-placeholder .co-ph-sub {
+    font-size: 0.66rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--co-olive);
+  }
+  #Coll-{{ section.id }} .co-name {
+    font-family: var(--font-heading-family, inherit);
+    font-weight: 700;
+    font-size: 1.05rem;
+    margin: 1rem 0 0.3rem;
+  }
+  #Coll-{{ section.id }} .co-price {
+    font-size: 0.95rem;
+    color: var(--co-olive);
+    margin: 0;
+  }
+  #Coll-{{ section.id }} .co-price s { color: rgba(58,20,28,0.45); margin-right: 0.4rem; }
+  @media (prefers-reduced-motion: no-preference) {
+    #Coll-{{ section.id }} .co-card {
+      opacity: 0;
+      transform: translateY(22px);
+      animation: co-rise 0.6s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+    }
+    #Coll-{{ section.id }} .co-card:nth-child(2) { animation-delay: 0.08s; }
+    #Coll-{{ section.id }} .co-card:nth-child(3) { animation-delay: 0.16s; }
+    #Coll-{{ section.id }} .co-card:nth-child(4) { animation-delay: 0.24s; }
+    @keyframes co-rise { to { opacity: 1; transform: translateY(0); } }
+  }
+  @media screen and (max-width: 749px) {
+    #Coll-{{ section.id }} .co-inner { padding-left: 1.5rem; padding-right: 1.5rem; }
+    #Coll-{{ section.id }} .co-head { flex-direction: column; align-items: flex-start; }
+    #Coll-{{ section.id }} .co-grid { grid-template-columns: repeat({{ section.settings.columns_mobile }}, 1fr); }
+  }
+{%- endstyle -%}
+
+{%- assign coll = collections[section.settings.collection] -%}
+
+<section id="Coll-{{ section.id }}">
+  <div class="co-inner">
+    <div class="co-head">
+      <div>
+        {%- if section.settings.eyebrow != blank -%}
+          <p class="co-eyebrow">{{ section.settings.eyebrow }}</p>
+        {%- endif -%}
+        {%- if section.settings.title != blank -%}
+          <h2 class="co-title">{{ section.settings.title }}</h2>
+        {%- endif -%}
+      </div>
+      {%- if section.settings.show_view_all and coll != blank -%}
+        <a href="{{ coll.url }}" class="co-viewall">{{ section.settings.view_all_label }}</a>
+      {%- endif -%}
+    </div>
+
+    <div class="co-grid">
+      {%- for product in coll.products limit: section.settings.products_to_show -%}
+        <a href="{{ product.url }}" class="co-card">
+          <div class="co-frame">
+            {%- if product.featured_image != blank -%}
+              <img
+                src="{{ product.featured_image | image_url: width: 700 }}"
+                alt="{{ product.featured_image.alt | default: product.title | escape }}"
+                loading="lazy"
+                width="600"
+                height="800"
+              >
+            {%- else -%}
+              <div class="co-placeholder">
+                <span class="co-ph-brand">Miraggio</span>
+                <span class="co-ph-sub">Coming soon</span>
+              </div>
+            {%- endif -%}
+          </div>
+          <p class="co-name">{{ product.title }}</p>
+          <p class="co-price">
+            {%- if product.compare_at_price > product.price -%}
+              <s>{{ product.compare_at_price | money }}</s>{{ product.price | money }}
+            {%- else -%}
+              {{ product.price | money }}
+            {%- endif -%}
+          </p>
+        </a>
+      {%- else -%}
+        {%- for i in (1..section.settings.products_to_show) -%}
+          <div class="co-card">
+            <div class="co-frame">
+              <div class="co-placeholder">
+                <span class="co-ph-brand">Miraggio</span>
+                <span class="co-ph-sub">Coming soon</span>
+              </div>
+            </div>
+            <p class="co-name">Signature bag</p>
+            <p class="co-price">{{ 1999 | money }}</p>
+          </div>
+        {%- endfor -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Aurora collection",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    { "type": "collection", "id": "collection", "label": "Collection" },
+    { "type": "range", "id": "products_to_show", "min": 2, "max": 12, "step": 1, "label": "Products to show", "default": 8 },
+    { "type": "range", "id": "columns_desktop", "min": 2, "max": 5, "step": 1, "label": "Columns (desktop)", "default": 4 },
+    { "type": "select", "id": "columns_mobile", "label": "Columns (mobile)", "options": [ { "value": "1", "label": "1" }, { "value": "2", "label": "2" } ], "default": "2" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "The collection" },
+    { "type": "text", "id": "title", "label": "Heading", "default": "Shop all bags" },
+    { "type": "checkbox", "id": "show_view_all", "label": "Show 'view all' link", "default": true },
+    { "type": "text", "id": "view_all_label", "label": "View all label", "default": "View all" },
+    { "type": "range", "id": "padding_top", "min": 40, "max": 160, "step": 4, "unit": "px", "label": "Top padding", "default": 72 },
+    { "type": "range", "id": "padding_bottom", "min": 40, "max": 160, "step": 4, "unit": "px", "label": "Bottom padding", "default": 72 }
+  ],
+  "presets": [{ "name": "Aurora collection" }]
+}
+{% endschema %}

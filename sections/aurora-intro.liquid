@@ -1,0 +1,126 @@
+{%- style -%}
+  #Intro-{{ section.id }} {
+    --in-espresso: #3A141C;
+    --in-cream: #F4ECDE;
+    --in-oat: #EFE3D2;
+    --in-clay: #C9A24B;
+    --in-olive: #7A2E3B;
+    position: relative;
+    overflow: hidden;
+    background:
+      radial-gradient(120% 90% at 50% -10%, #FBF5EA 0%, var(--in-cream) 55%);
+    color: var(--in-espresso);
+    border-top: 1px solid rgba(58, 20, 28, 0.08);
+  }
+  /* Oversized monogram watermark */
+  #Intro-{{ section.id }} .in-mono {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: var(--font-heading-family, inherit);
+    font-weight: 800;
+    font-size: clamp(20rem, 42vw, 44rem);
+    line-height: 1;
+    color: rgba(122, 46, 59, 0.05);
+    pointer-events: none;
+    user-select: none;
+    z-index: 0;
+  }
+  #Intro-{{ section.id }} .in-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 780px;
+    margin: 0 auto;
+    padding: {{ section.settings.padding_top }}px 1.5rem {{ section.settings.padding_bottom }}px;
+    text-align: center;
+  }
+  #Intro-{{ section.id }} .in-eyebrow {
+    font-size: 0.82rem;
+    letter-spacing: 0.34em;
+    text-transform: uppercase;
+    color: var(--in-clay);
+    margin: 0 0 1.4rem;
+  }
+  #Intro-{{ section.id }} .in-heading {
+    font-family: var(--font-heading-family, inherit);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: -0.015em;
+    line-height: 0.98;
+    font-size: clamp(2.8rem, 6vw, 4.8rem);
+    margin: 0 0 1.6rem;
+  }
+  #Intro-{{ section.id }} .in-heading em { font-style: normal; color: var(--in-clay); }
+  /* Gold divider with center diamond */
+  #Intro-{{ section.id }} .in-rule {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    margin: 0 0 1.8rem;
+  }
+  #Intro-{{ section.id }} .in-rule::before,
+  #Intro-{{ section.id }} .in-rule::after {
+    content: "";
+    width: 3rem;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--in-clay));
+  }
+  #Intro-{{ section.id }} .in-rule::after { background: linear-gradient(90deg, var(--in-clay), transparent); }
+  #Intro-{{ section.id }} .in-rule span {
+    width: 7px;
+    height: 7px;
+    background: var(--in-clay);
+    transform: rotate(45deg);
+    flex: none;
+  }
+  #Intro-{{ section.id }} .in-text {
+    font-size: clamp(1.1rem, 1.5vw, 1.3rem);
+    line-height: 1.75;
+    color: rgba(58, 20, 28, 0.78);
+    margin: 0 auto;
+  }
+  #Intro-{{ section.id }} .in-text p { margin: 0; }
+  @media (prefers-reduced-motion: no-preference) {
+    #Intro-{{ section.id }} .in-inner > * {
+      opacity: 0;
+      transform: translateY(18px);
+      animation: in-rise 0.7s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+    }
+    #Intro-{{ section.id }} .in-inner > *:nth-child(2) { animation-delay: 0.1s; }
+    #Intro-{{ section.id }} .in-inner > *:nth-child(3) { animation-delay: 0.2s; }
+    #Intro-{{ section.id }} .in-inner > *:nth-child(4) { animation-delay: 0.3s; }
+    @keyframes in-rise { to { opacity: 1; transform: translateY(0); } }
+  }
+{%- endstyle -%}
+
+<section id="Intro-{{ section.id }}">
+  <span class="in-mono" aria-hidden="true">M</span>
+  <div class="in-inner">
+    <p class="in-eyebrow">{{ section.settings.eyebrow | default: 'Our story' }}</p>
+    {%- if section.settings.heading != blank -%}
+      <h2 class="in-heading">{{ section.settings.heading }}</h2>
+    {%- endif -%}
+    <div class="in-rule" aria-hidden="true"><span></span></div>
+    {%- if section.settings.text != blank -%}
+      <div class="in-text">{{ section.settings.text }}</div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Aurora intro",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Our story" },
+    { "type": "inline_richtext", "id": "heading", "label": "Heading", "default": "More than a bag." },
+    { "type": "richtext", "id": "text", "label": "Text", "default": "<p>Miraggio began with a belief that a great bag is a little luxury you carry every day.</p>" },
+    { "type": "range", "id": "padding_top", "min": 40, "max": 200, "step": 4, "unit": "px", "label": "Top padding", "default": 96 },
+    { "type": "range", "id": "padding_bottom", "min": 40, "max": 200, "step": 4, "unit": "px", "label": "Bottom padding", "default": 96 }
+  ],
+  "presets": [{ "name": "Aurora intro" }]
+}
+{% endschema %}

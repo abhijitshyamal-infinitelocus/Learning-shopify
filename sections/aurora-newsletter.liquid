@@ -1,0 +1,136 @@
+{%- style -%}
+  #News-{{ section.id }} {
+    --nw-espresso: #2A1116;
+    --nw-cream: #F4ECDE;
+    --nw-clay: #C9A24B;
+    --nw-line: rgba(244, 236, 222, 0.22);
+    background: var(--nw-espresso);
+    color: var(--nw-cream);
+  }
+  #News-{{ section.id }} .nw-inner {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: {{ section.settings.padding_top }}px 1.5rem {{ section.settings.padding_bottom }}px;
+    text-align: center;
+  }
+  #News-{{ section.id }} .nw-eyebrow {
+    font-size: 0.78rem;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--nw-clay);
+    margin: 0 0 1rem;
+  }
+  #News-{{ section.id }} .nw-heading {
+    font-family: var(--font-heading-family, inherit);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+    line-height: 1;
+    font-size: clamp(2.2rem, 4.5vw, 3.6rem);
+    margin: 0 0 1.1rem;
+  }
+  #News-{{ section.id }} .nw-text {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: rgba(244, 236, 222, 0.78);
+    margin: 0 0 2rem;
+  }
+  #News-{{ section.id }} .nw-form {
+    display: flex;
+    max-width: 460px;
+    margin: 0 auto;
+    border: 1px solid var(--nw-line);
+    border-radius: 4px;
+    overflow: hidden;
+    background: rgba(244, 236, 222, 0.04);
+  }
+  #News-{{ section.id }} .nw-form input[type="email"] {
+    flex: 1;
+    background: transparent;
+    border: 0;
+    padding: 1rem 1.1rem;
+    color: var(--nw-cream);
+    font-size: 0.95rem;
+    min-width: 0;
+  }
+  #News-{{ section.id }} .nw-form input::placeholder { color: rgba(244, 236, 222, 0.5); }
+  #News-{{ section.id }} .nw-form input:focus { outline: none; }
+  #News-{{ section.id }} .nw-form button {
+    background: var(--nw-cream);
+    color: var(--nw-espresso);
+    border: 0;
+    padding: 0 1.6rem;
+    font-size: 0.78rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.18s ease;
+  }
+  #News-{{ section.id }} .nw-form button:hover { background: var(--nw-clay); }
+  #News-{{ section.id }} .nw-msg {
+    font-size: 0.9rem;
+    margin: 1rem 0 0;
+    color: var(--nw-clay);
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    #News-{{ section.id }} .nw-inner > * {
+      opacity: 0;
+      transform: translateY(18px);
+      animation: nw-rise 0.7s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+    }
+    #News-{{ section.id }} .nw-inner > *:nth-child(2) { animation-delay: 0.1s; }
+    #News-{{ section.id }} .nw-inner > *:nth-child(3) { animation-delay: 0.2s; }
+    #News-{{ section.id }} .nw-inner > *:nth-child(4) { animation-delay: 0.3s; }
+    @keyframes nw-rise { to { opacity: 1; transform: translateY(0); } }
+  }
+{%- endstyle -%}
+
+<section id="News-{{ section.id }}">
+  <div class="nw-inner">
+    {%- if section.settings.eyebrow != blank -%}
+      <p class="nw-eyebrow">{{ section.settings.eyebrow }}</p>
+    {%- endif -%}
+    {%- if section.settings.heading != blank -%}
+      <h2 class="nw-heading">{{ section.settings.heading }}</h2>
+    {%- endif -%}
+    {%- if section.settings.text != blank -%}
+      <div class="nw-text">{{ section.settings.text }}</div>
+    {%- endif -%}
+    {%- form 'customer' -%}
+      <input type="hidden" name="contact[tags]" value="newsletter">
+      <div class="nw-form">
+        <input
+          type="email"
+          name="contact[email]"
+          placeholder="Email address"
+          autocorrect="off"
+          autocapitalize="off"
+          required
+        >
+        <button type="submit" name="commit">{{ section.settings.button_label }}</button>
+      </div>
+      {%- if form.posted_successfully? -%}
+        <p class="nw-msg">Thanks — you're on the list.</p>
+      {%- elsif form.errors -%}
+        <p class="nw-msg">{{ form.errors.translated_fields.email | capitalize }} {{ form.errors.messages.email }}</p>
+      {%- endif -%}
+    {%- endform -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Aurora newsletter",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Newsletter" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Join the Miraggio world" },
+    { "type": "richtext", "id": "text", "label": "Text", "default": "<p>Sign up for 10% off your first bag, plus first access to every new drop.</p>" },
+    { "type": "text", "id": "button_label", "label": "Button label", "default": "Subscribe" },
+    { "type": "range", "id": "padding_top", "min": 40, "max": 160, "step": 4, "unit": "px", "label": "Top padding", "default": 88 },
+    { "type": "range", "id": "padding_bottom", "min": 40, "max": 160, "step": 4, "unit": "px", "label": "Bottom padding", "default": 88 }
+  ],
+  "presets": [{ "name": "Aurora newsletter" }]
+}
+{% endschema %}

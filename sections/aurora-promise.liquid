@@ -1,0 +1,173 @@
+{%- style -%}
+  #Promise-{{ section.id }} {
+    --pm-espresso: #3A141C;
+    --pm-cream: #F4ECDE;
+    --pm-oat: #EFE3D2;
+    --pm-clay: #C9A24B;
+    --pm-olive: #7A2E3B;
+    background:
+      radial-gradient(120% 100% at 50% 0%, #FBF5EA 0%, var(--pm-oat) 100%);
+    color: var(--pm-espresso);
+    border-top: 1px solid rgba(58, 20, 28, 0.1);
+    border-bottom: 1px solid rgba(58, 20, 28, 0.1);
+  }
+  #Promise-{{ section.id }} .pm-inner {
+    max-width: 1360px;
+    margin: 0 auto;
+    padding: {{ section.settings.padding_top }}px 3rem {{ section.settings.padding_bottom }}px;
+  }
+  #Promise-{{ section.id }} .pm-head {
+    text-align: center;
+    margin: 0 0 3.4rem;
+  }
+  #Promise-{{ section.id }} .pm-eyebrow {
+    font-size: 0.82rem;
+    letter-spacing: 0.34em;
+    text-transform: uppercase;
+    color: var(--pm-clay);
+    margin: 0 0 1rem;
+  }
+  #Promise-{{ section.id }} .pm-title {
+    font-family: var(--font-heading-family, inherit);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: -0.015em;
+    line-height: 0.98;
+    font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+    margin: 0;
+  }
+  #Promise-{{ section.id }} .pm-grid {
+    display: grid;
+    grid-template-columns: repeat({{ section.blocks.size | at_least: 1 }}, 1fr);
+    gap: 0;
+  }
+  #Promise-{{ section.id }} .pm-col {
+    position: relative;
+    text-align: center;
+    padding: 0 clamp(1.2rem, 3vw, 3rem);
+  }
+  /* Divider between columns */
+  #Promise-{{ section.id }} .pm-col + .pm-col::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.6rem;
+    bottom: 0.6rem;
+    width: 1px;
+    background: linear-gradient(180deg, transparent, rgba(58, 20, 28, 0.16), transparent);
+  }
+  #Promise-{{ section.id }} .pm-num {
+    display: block;
+    font-family: var(--font-heading-family, inherit);
+    font-weight: 800;
+    font-size: 1rem;
+    letter-spacing: 0.1em;
+    color: var(--pm-clay);
+    margin: 0 0 1.1rem;
+  }
+  #Promise-{{ section.id }} .pm-col-title {
+    font-family: var(--font-heading-family, inherit);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+    font-size: 1.4rem;
+    margin: 0 0 0.9rem;
+  }
+  #Promise-{{ section.id }} .pm-col-text {
+    font-size: 1.08rem;
+    line-height: 1.65;
+    color: rgba(58, 20, 28, 0.72);
+    margin: 0 auto;
+    max-width: 32ch;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    #Promise-{{ section.id }} .pm-col {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: pm-rise 0.7s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+    }
+    #Promise-{{ section.id }} .pm-col:nth-child(2) { animation-delay: 0.12s; }
+    #Promise-{{ section.id }} .pm-col:nth-child(3) { animation-delay: 0.24s; }
+    #Promise-{{ section.id }} .pm-col:nth-child(4) { animation-delay: 0.36s; }
+    @keyframes pm-rise { to { opacity: 1; transform: translateY(0); } }
+  }
+  @media screen and (max-width: 749px) {
+    #Promise-{{ section.id }} .pm-inner { padding-left: 1.5rem; padding-right: 1.5rem; }
+    #Promise-{{ section.id }} .pm-grid { grid-template-columns: 1fr; gap: 2.6rem; }
+    #Promise-{{ section.id }} .pm-col { padding: 0; }
+    #Promise-{{ section.id }} .pm-col + .pm-col::before {
+      left: 50%;
+      right: auto;
+      top: -1.3rem;
+      bottom: auto;
+      transform: translateX(-50%);
+      width: 3rem;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(58, 20, 28, 0.2), transparent);
+    }
+  }
+{%- endstyle -%}
+
+<section id="Promise-{{ section.id }}">
+  <div class="pm-inner">
+    {%- if section.settings.eyebrow != blank or section.settings.title != blank -%}
+      <div class="pm-head">
+        {%- if section.settings.eyebrow != blank -%}
+          <p class="pm-eyebrow">{{ section.settings.eyebrow }}</p>
+        {%- endif -%}
+        {%- if section.settings.title != blank -%}
+          <h2 class="pm-title">{{ section.settings.title }}</h2>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    <div class="pm-grid">
+      {%- for block in section.blocks -%}
+        <div class="pm-col" {{ block.shopify_attributes }}>
+          <span class="pm-num" aria-hidden="true">{{ forloop.index | prepend: '0' }}</span>
+          {%- if block.settings.title != blank -%}
+            <h3 class="pm-col-title">{{ block.settings.title }}</h3>
+          {%- endif -%}
+          {%- if block.settings.text != blank -%}
+            <div class="pm-col-text">{{ block.settings.text }}</div>
+          {%- endif -%}
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Aurora promise",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Why Miraggio" },
+    { "type": "text", "id": "title", "label": "Heading", "default": "The Miraggio promise" },
+    { "type": "range", "id": "padding_top", "min": 40, "max": 200, "step": 4, "unit": "px", "label": "Top padding", "default": 88 },
+    { "type": "range", "id": "padding_bottom", "min": 40, "max": 200, "step": 4, "unit": "px", "label": "Bottom padding", "default": 88 }
+  ],
+  "blocks": [
+    {
+      "type": "column",
+      "name": "Column",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Title" },
+        { "type": "richtext", "id": "text", "label": "Text" }
+      ]
+    }
+  ],
+  "max_blocks": 4,
+  "presets": [
+    {
+      "name": "Aurora promise",
+      "blocks": [
+        { "type": "column", "settings": { "title": "Premium vegan leather", "text": "<p>Cruelty-free, buttery-soft finishes built to last season after season.</p>" } },
+        { "type": "column", "settings": { "title": "Designed in India", "text": "<p>Thoughtful shapes and hardware, drawn and refined in-house.</p>" } },
+        { "type": "column", "settings": { "title": "1-year warranty", "text": "<p>Every bag is backed by a full year against manufacturing defects.</p>" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
