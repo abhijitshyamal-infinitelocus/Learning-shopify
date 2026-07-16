@@ -16,6 +16,13 @@
         "price": {
           "type": "price"
         },
+        "tax_note": {
+          "type": "text",
+          "settings": {
+            "text": "Inclusive of all taxes",
+            "text_style": "body"
+          }
+        },
         "variant_picker": {
           "type": "variant_picker",
           "settings": {
@@ -23,18 +30,52 @@
             "swatch_shape": "circle"
           }
         },
-        "quantity_selector": {
-          "type": "quantity_selector"
-        },
         "buy_buttons": {
           "type": "buy_buttons",
           "settings": {
             "show_dynamic_checkout": true,
-            "show_gift_card_recipient": true
+            "show_gift_card_recipient": false
           }
         },
-        "description": {
-          "type": "description"
+        "delivery": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<div class='ml-del'><p class='ml-del-h'>Delivery Details</p><div class='ml-del-row'><input id='ml-pin' type='text' inputmode='numeric' maxlength='6' placeholder='Enter your pincode'><button type='button' id='ml-pin-btn'>Check</button></div><p id='ml-pin-msg' class='ml-del-msg'></p></div><style>.ml-del{margin:.4rem 0 1rem}.ml-del-h{font-weight:700;text-transform:uppercase;letter-spacing:.1em;font-size:.86rem;margin:0 0 .7rem}.ml-del-row{display:flex;gap:.6rem;max-width:420px}.ml-del-row input{flex:1;min-width:0;border:1px solid rgba(42,17,22,.25);border-radius:6px;padding:.8rem 1rem;font-size:1rem}.ml-del-row button{background:#2A1116;color:#F4ECDE;border:0;border-radius:6px;padding:0 1.4rem;text-transform:uppercase;letter-spacing:.12em;font-size:.78rem;cursor:pointer}.ml-del-msg{margin:.6rem 0 0;font-size:.9rem;color:#2E6F40}</style><script>(function(){var b=document.getElementById('ml-pin-btn');if(!b)return;b.addEventListener('click',function(){var v=(document.getElementById('ml-pin').value||'').trim();var m=document.getElementById('ml-pin-msg');if(/^[0-9]{6}$/.test(v)){m.style.color='#2E6F40';m.textContent='Usually delivered in 4-6 business days.';}else{m.style.color='#8A2B2B';m.textContent='Please enter a valid 6-digit pincode.';}});})();</script>"
+          }
+        },
+        "key_features": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<div class='ml-kf'><p class='ml-kf-h'>Key Features</p><ul><li>Multiple functional pockets</li><li>Top zipper closure</li><li>Detachable shoulder strap</li><li>Premium vegan leather</li></ul></div><style>.ml-kf{margin:.4rem 0 1rem}.ml-kf-h{font-weight:700;text-transform:uppercase;letter-spacing:.1em;font-size:.86rem;margin:0 0 .6rem}.ml-kf ul{columns:2;column-gap:2rem;list-style:disc;padding-left:1.2rem;margin:0;color:rgba(42,17,22,.82);font-size:.96rem}.ml-kf li{margin:.25rem 0;break-inside:avoid}</style>"
+          }
+        },
+        "tab_love": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Why You'll Love It?",
+            "content": "<p>A go-anywhere silhouette in buttery vegan leather. The structured base keeps its shape, the chain-and-leather strap adds a touch of polish, and the roomy interior swallows all your everyday essentials.</p>"
+          }
+        },
+        "tab_details": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Details & Dimensions",
+            "content": "<ul><li>Dimensions: 24cm W x 14cm H x 7cm D</li><li>Strap drop: 55cm (detachable, adjustable)</li><li>Material: premium vegan (PU) leather</li><li>Hardware: gold-tone</li><li>Lining: soft fabric with zip pocket</li></ul>"
+          }
+        },
+        "tab_shipping": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Shipping & Returns",
+            "content": "<p>Free shipping on orders over Rs. 1499. Orders usually dispatch within 24-48 hours and arrive in 4-6 business days. Easy 30-day returns on unused items with tags intact.</p>"
+          }
+        },
+        "tab_more": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "More Information",
+            "content": "<p>Wipe clean with a soft, dry cloth. Avoid prolonged exposure to water and direct sunlight. Store in the dust bag provided. Backed by a 1-year warranty against manufacturing defects.</p>"
+          }
         },
         "share": {
           "type": "share",
@@ -47,17 +88,22 @@
         "vendor",
         "title",
         "price",
+        "tax_note",
         "variant_picker",
-        "quantity_selector",
         "buy_buttons",
-        "description",
+        "delivery",
+        "key_features",
+        "tab_love",
+        "tab_details",
+        "tab_shipping",
+        "tab_more",
         "share"
       ],
       "settings": {
         "enable_sticky_info": true,
         "color_scheme": "scheme-1",
         "media_position": "left",
-        "gallery_layout": "stacked",
+        "gallery_layout": "thumbnail",
         "media_size": "large",
         "constrain_to_viewport": true,
         "media_fit": "contain",
@@ -69,13 +115,6 @@
         "padding_bottom": 12
       }
     },
-    "disclosures": {
-      "type": "disclosures",
-      "settings": {
-        "padding_top": 36,
-        "padding_bottom": 0
-      }
-    },
     "related-products": {
       "type": "related-products",
       "settings": {
@@ -84,7 +123,7 @@
         "products_to_show": 4,
         "columns_desktop": 4,
         "color_scheme": "scheme-1",
-        "image_ratio": "square",
+        "image_ratio": "portrait",
         "image_shape": "default",
         "show_secondary_image": true,
         "show_vendor": false,
@@ -119,7 +158,6 @@
   "order": [
     "offer_strip",
     "main",
-    "disclosures",
     "related-products",
     "newsletter"
   ]
