@@ -28,6 +28,13 @@
             "link": "shopify://collections/all"
           }
         },
+        "announcement_rw9e3J": {
+          "type": "announcement",
+          "settings": {
+            "text": "Welcome to our store",
+            "link": ""
+          }
+        },
         "announcement-bar-2": {
           "type": "announcement",
           "settings": {
@@ -46,6 +53,7 @@
       "block_order": [
         "announcement-bar-0",
         "announcement-bar-1",
+        "announcement_rw9e3J",
         "announcement-bar-2",
         "announcement-bar-3"
       ],

@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "name": "t:sections.footer.name",
   "type": "footer",
@@ -7,29 +16,40 @@
       "blocks": {
         "shop": {
           "type": "column",
-          "settings": { "heading": "Shop" }
+          "settings": {
+            "heading": "Shop",
+            "menu": ""
+          }
         },
         "help": {
           "type": "column",
-          "settings": { "heading": "Help" }
+          "settings": {
+            "heading": "Help",
+            "menu": ""
+          }
         },
         "company": {
           "type": "column",
-          "settings": { "heading": "Company" }
+          "settings": {
+            "heading": "Company",
+            "menu": ""
+          }
         }
       },
-      "block_order": ["shop", "help", "company"],
+      "block_order": [
+        "shop",
+        "help",
+        "company"
+      ],
       "settings": {
         "brand_name": "Miraggio",
-        "tagline": "Vegan-leather handbags, slings, and clutches - designed in India to elevate your everyday.",
+        "tagline": "Vegan-leather handbags, slings, and clutches — designed in India to elevate your everyday.",
         "contact_email": "care@miraggio.com",
-        "contact_phone": "+91 98765 43210",
+        "contact_phone": "+91 6296390743",
         "contact_address": "Mon–Sat, 10am–7pm IST",
-        "newsletter_enable": false,
-        "newsletter_heading": "Join the Miraggio world",
         "bottom_note": "Designed with love and made responsibly in India.",
-        "padding_top": 36,
-        "padding_bottom": 24
+        "padding_top": 56,
+        "padding_bottom": 40
       }
     }
   },
