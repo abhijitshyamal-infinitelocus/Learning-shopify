@@ -111,7 +111,7 @@
         <button type="submit" name="commit">{{ section.settings.button_label }}</button>
       </div>
       {%- if form.posted_successfully? -%}
-        <p class="nw-msg">Thanks — you're on the list.</p>
+        <p class="nw-msg">Thanks - you're on the list.</p>
       {%- elsif form.errors -%}
         <p class="nw-msg">{{ form.errors.translated_fields.email | capitalize }} {{ form.errors.messages.email }}</p>
       {%- endif -%}

@@ -75,7 +75,7 @@
       {%- comment -%} Rendered twice so the loop is seamless {%- endcomment -%}
       {%- for i in (1..2) -%}
         <div class="fb-track" aria-hidden="{% if i == 2 %}true{% else %}false{% endif %}">
-          {%- comment -%} Repeat the set so one track always exceeds viewport width — seamless, gap-free loop {%- endcomment -%}
+          {%- comment -%} Repeat the set so one track always exceeds viewport width - seamless, gap-free loop {%- endcomment -%}
           {%- for r in (1..4) -%}
             {%- for block in section.blocks -%}
               {%- if block.settings.text != blank -%}

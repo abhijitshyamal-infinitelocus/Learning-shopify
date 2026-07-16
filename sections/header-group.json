@@ -17,14 +17,14 @@
         "announcement-bar-0": {
           "type": "announcement",
           "settings": {
-            "text": "Buy now, get 10% off — use code AFG787",
+            "text": "Buy now, get 10% off - use code AFG787",
             "link": ""
           }
         },
         "announcement-bar-1": {
           "type": "announcement",
           "settings": {
-            "text": "\"Color Rush\" is live — shop the new drop",
+            "text": "\"Color Rush\" is live - shop the new drop",
             "link": "shopify://collections/all"
           }
         },

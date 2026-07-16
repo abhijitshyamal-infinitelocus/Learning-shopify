@@ -1,11 +1,11 @@
-# Miraggio — Shopify Theme
+# Miraggio - Shopify Theme
 
 A custom Shopify storefront for **Miraggio**, a women's vegan-leather bag brand (handbags, slings, and clutches) designed in India. Built on Shopify's [Dawn](https://github.com/Shopify/dawn) theme and extended with a set of bespoke, editorial "aurora" sections.
 
 ## Overview
 
 - **Base:** Shopify Dawn (Online Store 2.0, JSON templates + Liquid sections).
-- **Brand:** Miraggio — editorial luxury look; warm palette (burgundy espresso, cream, gold/clay, olive), bold uppercase display headings, real hosted photography.
+- **Brand:** Miraggio - editorial luxury look; warm palette (burgundy espresso, cream, gold/clay, olive), bold uppercase display headings, real hosted photography.
 - **Customizations:** Six custom homepage/footer sections prefixed `aurora-`, plus a scaled-up global type size.
 
 ## Custom sections
@@ -41,8 +41,8 @@ Section order in [`templates/index.json`](templates/index.json):
 
 Global type scale is driven by Dawn's own mechanism in [`config/settings_data.json`](config/settings_data.json):
 
-- `body_scale`: **115** — sets `html { font-size: calc(var(--font-body-scale) * 62.5%) }`, scaling all `rem`-based text.
-- `heading_scale`: **129** — heading multiplier, kept proportional to `body_scale`.
+- `body_scale`: **115** - sets `html { font-size: calc(var(--font-body-scale) * 62.5%) }`, scaling all `rem`-based text.
+- `heading_scale`: **129** - heading multiplier, kept proportional to `body_scale`.
 
 Adjust these two values (or the **Typography** panel in the theme customizer) to resize text across the whole store.
 
@@ -60,4 +60,4 @@ shopify theme pull     # pull the live theme's settings/templates
 ## Notes
 
 - Aurora sections use remote (Unsplash) image URLs by design; `theme check` reports these as `RemoteAsset` performance *warnings*, not errors.
-- Product grid placeholders (default Shopify images) come from products without uploaded images — that's store data, fixed by adding product photos in the Shopify admin, not in the theme.
+- Product grid placeholders (default Shopify images) come from products without uploaded images - that's store data, fixed by adding product photos in the Shopify admin, not in the theme.
