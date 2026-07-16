@@ -1,0 +1,295 @@
+{%- style -%}
+  #Contact-{{ section.id }} {
+    --ct-espresso: #2A1116;
+    --ct-wine: #3A141C;
+    --ct-cream: #F4ECDE;
+    --ct-oat: #EFE3D2;
+    --ct-clay: #C9A24B;
+    --ct-line: rgba(42, 17, 22, 0.16);
+    background: var(--ct-cream);
+    color: var(--ct-espresso);
+  }
+  #Contact-{{ section.id }} .ct-inner {
+    max-width: var(--page-width, 1200px);
+    margin: 0 auto;
+    padding: {{ section.settings.padding_top }}px 2.5rem {{ section.settings.padding_bottom }}px;
+  }
+  #Contact-{{ section.id }} .ct-head {
+    max-width: 46ch;
+    margin: 0 0 3rem;
+  }
+  #Contact-{{ section.id }} .ct-eyebrow {
+    font-size: 0.78rem;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--ct-clay);
+    margin: 0 0 1rem;
+  }
+  #Contact-{{ section.id }} .ct-title {
+    font-family: var(--font-heading-family, inherit);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+    line-height: 0.98;
+    font-size: clamp(2.4rem, 5vw, 4rem);
+    margin: 0 0 1rem;
+  }
+  #Contact-{{ section.id }} .ct-title em { font-style: normal; color: var(--ct-clay); }
+  #Contact-{{ section.id }} .ct-sub {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: rgba(42, 17, 22, 0.72);
+    margin: 0;
+  }
+  #Contact-{{ section.id }} .ct-grid {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 2.5rem;
+    align-items: stretch;
+  }
+
+  /* --- Info panel (wine) --- */
+  #Contact-{{ section.id }} .ct-info {
+    background: var(--ct-wine);
+    color: var(--ct-cream);
+    border-radius: 14px;
+    padding: 2.6rem 2.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.8rem;
+  }
+  #Contact-{{ section.id }} .ct-info-label {
+    font-size: 0.74rem;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--ct-clay);
+    margin: 0 0 0.5rem;
+  }
+  #Contact-{{ section.id }} .ct-info-value {
+    font-size: 1.12rem;
+    line-height: 1.5;
+    margin: 0;
+  }
+  #Contact-{{ section.id }} .ct-info-value a { color: inherit; text-decoration: none; }
+  #Contact-{{ section.id }} .ct-info-value a:hover { color: var(--ct-clay); }
+  #Contact-{{ section.id }} .ct-info-social {
+    margin-top: auto;
+    display: flex;
+    gap: 1.3rem;
+    padding-top: 1.6rem;
+    border-top: 1px solid rgba(244, 236, 222, 0.16);
+  }
+  #Contact-{{ section.id }} .ct-info-social a {
+    color: rgba(244, 236, 222, 0.75);
+    text-decoration: none;
+    font-size: 0.9rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: color 0.18s ease;
+  }
+  #Contact-{{ section.id }} .ct-info-social a:hover { color: var(--ct-clay); }
+
+  /* --- Form --- */
+  #Contact-{{ section.id }} .ct-form {
+    background: #FFFFFF;
+    border: 1px solid var(--ct-line);
+    border-radius: 14px;
+    padding: 2.6rem 2.2rem;
+  }
+  #Contact-{{ section.id }} .ct-fields {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.1rem;
+  }
+  #Contact-{{ section.id }} .ct-field--full { grid-column: 1 / -1; }
+  #Contact-{{ section.id }} .ct-field label {
+    display: block;
+    font-size: 0.74rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgba(42, 17, 22, 0.6);
+    margin: 0 0 0.5rem;
+  }
+  #Contact-{{ section.id }} .ct-field input,
+  #Contact-{{ section.id }} .ct-field textarea {
+    width: 100%;
+    background: var(--ct-oat);
+    border: 1px solid transparent;
+    border-radius: 8px;
+    padding: 0.95rem 1rem;
+    font-size: 1rem;
+    color: var(--ct-espresso);
+    font-family: inherit;
+    transition: border-color 0.18s ease, background 0.18s ease;
+  }
+  #Contact-{{ section.id }} .ct-field textarea { min-height: 150px; resize: vertical; }
+  #Contact-{{ section.id }} .ct-field input:focus,
+  #Contact-{{ section.id }} .ct-field textarea:focus {
+    outline: none;
+    background: #FFFFFF;
+    border-color: var(--ct-clay);
+  }
+  #Contact-{{ section.id }} .ct-field input::placeholder,
+  #Contact-{{ section.id }} .ct-field textarea::placeholder { color: rgba(42, 17, 22, 0.4); }
+  #Contact-{{ section.id }} .ct-submit {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1.4rem;
+    padding: 1rem 2.4rem;
+    background: var(--ct-espresso);
+    color: var(--ct-cream);
+    border: 0;
+    border-radius: 8px;
+    font-size: 0.82rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.18s ease;
+  }
+  #Contact-{{ section.id }} .ct-submit:hover { background: var(--ct-clay); color: var(--ct-espresso); transform: translateY(-2px); }
+  #Contact-{{ section.id }} .ct-note {
+    font-size: 0.86rem;
+    color: rgba(42, 17, 22, 0.55);
+    margin: 1rem 0 0;
+  }
+  #Contact-{{ section.id }} .ct-msg {
+    border-radius: 8px;
+    padding: 0.9rem 1.1rem;
+    margin: 0 0 1.4rem;
+    font-size: 0.95rem;
+  }
+  #Contact-{{ section.id }} .ct-msg--ok { background: rgba(46, 111, 64, 0.12); color: #2E6F40; }
+  #Contact-{{ section.id }} .ct-msg--err { background: rgba(150, 40, 40, 0.1); color: #8A2B2B; }
+  #Contact-{{ section.id }} .ct-msg ul { margin: 0.4rem 0 0; padding-left: 1.2rem; }
+
+  @media (prefers-reduced-motion: no-preference) {
+    #Contact-{{ section.id }} .ct-info,
+    #Contact-{{ section.id }} .ct-form {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: ct-rise 0.7s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+    }
+    #Contact-{{ section.id }} .ct-form { animation-delay: 0.12s; }
+    @keyframes ct-rise { to { opacity: 1; transform: translateY(0); } }
+  }
+
+  @media screen and (max-width: 749px) {
+    #Contact-{{ section.id }} .ct-inner { padding-left: 1.5rem; padding-right: 1.5rem; }
+    #Contact-{{ section.id }} .ct-grid { grid-template-columns: 1fr; gap: 1.6rem; }
+    #Contact-{{ section.id }} .ct-fields { grid-template-columns: 1fr; }
+  }
+{%- endstyle -%}
+
+<section id="Contact-{{ section.id }}">
+  <div class="ct-inner">
+    <div class="ct-head">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="ct-eyebrow">{{ section.settings.eyebrow }}</p>
+      {%- endif -%}
+      {%- if section.settings.heading != blank -%}
+        <h1 class="ct-title">{{ section.settings.heading }}</h1>
+      {%- endif -%}
+      {%- if section.settings.subtext != blank -%}
+        <p class="ct-sub">{{ section.settings.subtext }}</p>
+      {%- endif -%}
+    </div>
+
+    <div class="ct-grid">
+      <aside class="ct-info">
+        {%- if section.settings.email != blank -%}
+          <div>
+            <p class="ct-info-label">Email</p>
+            <p class="ct-info-value"><a href="mailto:{{ section.settings.email }}">{{ section.settings.email }}</a></p>
+          </div>
+        {%- endif -%}
+        {%- if section.settings.phone != blank -%}
+          <div>
+            <p class="ct-info-label">Phone</p>
+            <p class="ct-info-value"><a href="tel:{{ section.settings.phone | remove: ' ' }}">{{ section.settings.phone }}</a></p>
+          </div>
+        {%- endif -%}
+        {%- if section.settings.hours != blank -%}
+          <div>
+            <p class="ct-info-label">Hours</p>
+            <p class="ct-info-value">{{ section.settings.hours }}</p>
+          </div>
+        {%- endif -%}
+        {%- if section.settings.address != blank -%}
+          <div>
+            <p class="ct-info-label">Visit</p>
+            <p class="ct-info-value">{{ section.settings.address }}</p>
+          </div>
+        {%- endif -%}
+        <div class="ct-info-social">
+          {%- if settings.social_instagram_link != blank -%}<a href="{{ settings.social_instagram_link }}" target="_blank" rel="noopener">Instagram</a>{%- else -%}<a href="#">Instagram</a>{%- endif -%}
+          {%- if settings.social_facebook_link != blank -%}<a href="{{ settings.social_facebook_link }}" target="_blank" rel="noopener">Facebook</a>{%- else -%}<a href="#">Facebook</a>{%- endif -%}
+          {%- if settings.social_pinterest_link != blank -%}<a href="{{ settings.social_pinterest_link }}" target="_blank" rel="noopener">Pinterest</a>{%- else -%}<a href="#">Pinterest</a>{%- endif -%}
+        </div>
+      </aside>
+
+      <div class="ct-form">
+        {%- form 'contact', id: 'ContactForm-' | append: section.id -%}
+          {%- if form.posted_successfully? -%}
+            <p class="ct-msg ct-msg--ok">Thanks for reaching out — we'll get back to you shortly.</p>
+          {%- elsif form.errors -%}
+            <div class="ct-msg ct-msg--err">
+              Please check the highlighted fields.
+              <ul>
+                {%- for field in form.errors -%}
+                  <li>{{ form.errors.translated_fields[field] | capitalize }}: {{ form.errors.messages[field] }}</li>
+                {%- endfor -%}
+              </ul>
+            </div>
+          {%- endif -%}
+          <div class="ct-fields">
+            <div class="ct-field">
+              <label for="ct-name-{{ section.id }}">Name</label>
+              <input type="text" id="ct-name-{{ section.id }}" name="contact[Name]" value="{% if form.name %}{{ form.name }}{% endif %}" placeholder="Your name">
+            </div>
+            <div class="ct-field">
+              <label for="ct-email-{{ section.id }}">Email *</label>
+              <input type="email" id="ct-email-{{ section.id }}" name="contact[email]" value="{% if form.email %}{{ form.email }}{% endif %}" placeholder="you@email.com" required>
+            </div>
+            <div class="ct-field ct-field--full">
+              <label for="ct-phone-{{ section.id }}">Phone number</label>
+              <input type="tel" id="ct-phone-{{ section.id }}" name="contact[Phone number]" placeholder="Optional">
+            </div>
+            <div class="ct-field ct-field--full">
+              <label for="ct-body-{{ section.id }}">How can we help?</label>
+              <textarea id="ct-body-{{ section.id }}" name="contact[body]" placeholder="Tell us what you're looking for…">{% if form.body %}{{ form.body }}{% endif %}</textarea>
+            </div>
+          </div>
+          <button type="submit" class="ct-submit">{{ section.settings.button_label | default: 'Send message' }}</button>
+          {%- if section.settings.note != blank -%}
+            <p class="ct-note">{{ section.settings.note }}</p>
+          {%- endif -%}
+        {%- endform -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Aurora contact",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Get in touch" },
+    { "type": "inline_richtext", "id": "heading", "label": "Heading", "default": "We'd love to <em>hear</em> from you" },
+    { "type": "text", "id": "subtext", "label": "Subtext", "default": "Questions about a bag, an order, or a partnership? Send us a note and our team will reply within one business day." },
+    { "type": "text", "id": "button_label", "label": "Button label", "default": "Send message" },
+    { "type": "header", "content": "Contact details" },
+    { "type": "text", "id": "email", "label": "Email", "default": "care@miraggio.com" },
+    { "type": "text", "id": "phone", "label": "Phone", "default": "+91 98765 43210" },
+    { "type": "text", "id": "hours", "label": "Hours", "default": "Mon–Sat, 10am–7pm IST" },
+    { "type": "text", "id": "address", "label": "Address", "default": "Miraggio HQ, Bengaluru, India" },
+    { "type": "textarea", "id": "note", "label": "Form note", "default": "We'll only use your details to respond to your enquiry." },
+    { "type": "header", "content": "Spacing" },
+    { "type": "range", "id": "padding_top", "min": 40, "max": 160, "step": 4, "unit": "px", "label": "Top padding", "default": 88 },
+    { "type": "range", "id": "padding_bottom", "min": 40, "max": 160, "step": 4, "unit": "px", "label": "Bottom padding", "default": 96 }
+  ],
+  "presets": [{ "name": "Aurora contact" }]
+}
+{% endschema %}
