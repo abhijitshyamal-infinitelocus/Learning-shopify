@@ -214,10 +214,9 @@
     left: 0;
     right: 0;
     z-index: 4;
-    padding-bottom: 0.5rem;
-    background: linear-gradient(180deg, rgba(42, 17, 22, 0.92) 0%, rgba(42, 17, 22, 0.8) 70%, rgba(42, 17, 22, 0.55) 100%);
+    background: transparent;
   }
-  .shopify-section-group-header-group .announcement-bar,
+  /* navbar itself is fully transparent; the announcement strip keeps its dark-wine scheme */
   .shopify-section-group-header-group .header-wrapper,
   .shopify-section-group-header-group .header {
     background: transparent !important;
@@ -225,6 +224,8 @@
   }
   .shopify-section-group-header-group .header {
     align-items: center;
+    padding-top: 2rem !important;
+    padding-bottom: 1.4rem !important;
   }
   .shopify-section-group-header-group,
   .shopify-section-group-header-group a,
