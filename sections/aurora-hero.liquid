@@ -209,12 +209,17 @@
 
   /* Luxury transparent header overlaid on the hero (homepage only — this CSS ships with the hero section) */
   .shopify-section-group-header-group {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    z-index: 4;
+    z-index: 6;
     background: transparent;
+    transition: background-color 0.35s ease, box-shadow 0.35s ease;
+  }
+  .shopify-section-group-header-group.ah-header-solid {
+    background-color: #3A141C;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.28);
   }
   /* navbar itself is fully transparent; the announcement strip keeps its dark-wine scheme */
   .shopify-section-group-header-group .header-wrapper,
@@ -325,6 +330,18 @@
     </div>
   </div>
 </section>
+
+<script>
+  (function () {
+    var group = document.querySelector('.shopify-section-group-header-group');
+    if (!group) return;
+    var onScroll = function () {
+      group.classList.toggle('ah-header-solid', window.scrollY > 60);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  })();
+</script>
 
 {% schema %}
 {

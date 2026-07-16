@@ -107,7 +107,7 @@
     </div>
 
     <div class="lb-grid">
-      {%- for block in section.blocks -%}
+      {%- for block in section.blocks limit: 3 -%}
         <a
           href="{{ block.settings.link | default: '#' }}"
           class="lb-card"
@@ -160,7 +160,7 @@
       ]
     }
   ],
-  "max_blocks": 4,
+  "max_blocks": 3,
   "presets": [
     {
       "name": "Aurora lookbook",
