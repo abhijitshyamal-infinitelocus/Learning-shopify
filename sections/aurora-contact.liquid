@@ -229,7 +229,7 @@
       </aside>
 
       <div class="ct-form">
-        {%- form 'contact', id: 'ContactForm-' | append: section.id -%}
+        {%- form 'contact' -%}
           {%- if form.posted_successfully? -%}
             <p class="ct-msg ct-msg--ok">Thanks for reaching out - we'll get back to you shortly.</p>
           {%- elsif form.errors -%}
